@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public class CreeperEnemy : MonoBehaviour
+public class CreeperEnemy : EnemyManagement
 {
 
     // public ParticleSystem particles;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public override void OnCollisionEnter2D(Collision2D collision)
     {
+        base.OnCollisionEnter2D(collision);
         if (collision.collider.CompareTag("Bullet"))
         {
             Destroy();

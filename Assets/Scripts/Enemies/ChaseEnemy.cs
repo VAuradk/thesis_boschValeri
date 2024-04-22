@@ -1,39 +1,36 @@
 
 using UnityEngine;
 
-public class ChaseEnemy : MonoBehaviour
+public class ChaseEnemy : EnemyManagement
 {
-    [SerializeField] private float moveSpeed = 5f;
-    private Rigidbody2D rb;
     private Transform target;
     private Vector2 moveDirection;
 
-    private void Awake()
+    public override void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-    }
-
-    private void Start()
-    {
+        base.Start();
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    private void Update()
+    public virtual void Update()
     {
         if (target)
         {
             Vector3 direction = (target.position - transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            rb.rotation = angle;
+            enemyRB.rotation = angle;
             moveDirection = direction;
         }
     }
 
-    private void FixedUpdate()
+    public virtual void FixedUpdate()
     {
-        if (target)
+        if (isMoving)
         {
-            rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
+            if (target)
+            {
+                enemyRB.velocity = new Vector2(moveDirection.x, moveDirection.y) * enemySpeed;
+            }
         }
     }
 }

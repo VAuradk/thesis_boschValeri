@@ -1,47 +1,25 @@
 using System.Collections;
 using UnityEngine;
 
-public class InvisibleEnemy : MonoBehaviour
+public class InvisibleEnemy : ChaseEnemy
 {
-    [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float invisibilityDuration = 2f;
     [SerializeField] private float invisibilityInterval = 5f;
-    private Rigidbody2D rb;
-    private Transform target;
-    private Vector2 moveDirection;
+
     private SpriteRenderer spriteRenderer;
     private bool isVisible = true;
     private Coroutine visibilityCoroutine;
 
-    private void Awake()
+    public override void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        base.Awake();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Start()
+    public override void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        base.Start();
         visibilityCoroutine = StartCoroutine(ToggleVisibility());
-    }
-
-    private void Update()
-    {
-        if (target)
-        {
-            Vector3 direction = (target.position - transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            rb.rotation = angle;
-            moveDirection = direction;
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (target)
-        {
-            rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
-        }
     }
 
     private IEnumerator ToggleVisibility()
@@ -64,8 +42,9 @@ public class InvisibleEnemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public override void OnCollisionEnter2D(Collision2D collision)
     {
+        base.OnCollisionEnter2D(collision);
         if (collision.gameObject.CompareTag("Player"))
         {
             spriteRenderer.enabled = true;

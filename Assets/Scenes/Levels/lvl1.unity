@@ -200,7 +200,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -294,7 +294,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9146fa88238f46c789919eaaa939e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  enemySpeed: 3
+  timeAFK: 0.5
+  enemyRB: {fileID: 0}
+  isMoving: 0
 --- !u!1 &1172063105
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +581,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9146fa88238f46c789919eaaa939e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  enemySpeed: 3
+  timeAFK: 0.5
+  enemyRB: {fileID: 0}
+  isMoving: 0
 --- !u!61 &1974800048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -636,7 +642,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -750,7 +756,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9146fa88238f46c789919eaaa939e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  enemySpeed: 3
+  timeAFK: 0.5
+  enemyRB: {fileID: 0}
+  isMoving: 0
 --- !u!61 &2004413292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -808,7 +817,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

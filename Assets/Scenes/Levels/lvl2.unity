@@ -227,6 +227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457b12c299100434b96133b2dbf1168e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpeed: 1
+  timeAFK: 0.2
+  enemyRB: {fileID: 0}
+  isMoving: 0
 --- !u!212 &48553976
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -398,6 +402,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457b12c299100434b96133b2dbf1168e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpeed: 0
+  timeAFK: 0
+  enemyRB: {fileID: 0}
+  isMoving: 0
 --- !u!212 &326915835
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -569,6 +577,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457b12c299100434b96133b2dbf1168e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpeed: 1
+  timeAFK: 0.2
+  enemyRB: {fileID: 0}
+  isMoving: 0
 --- !u!212 &420961888
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -740,6 +752,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457b12c299100434b96133b2dbf1168e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpeed: 1
+  timeAFK: 0.2
+  enemyRB: {fileID: 0}
+  isMoving: 0
 --- !u!212 &555910222
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -968,6 +984,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457b12c299100434b96133b2dbf1168e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpeed: 1
+  timeAFK: 0.2
+  enemyRB: {fileID: 0}
+  isMoving: 0
 --- !u!212 &862949909
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1139,6 +1159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457b12c299100434b96133b2dbf1168e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpeed: 1
+  timeAFK: 0.2
+  enemyRB: {fileID: 0}
+  isMoving: 0
 --- !u!212 &866981537
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1367,6 +1391,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457b12c299100434b96133b2dbf1168e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpeed: 1
+  timeAFK: 0.2
+  enemyRB: {fileID: 0}
+  isMoving: 0
 --- !u!212 &946944381
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1585,6 +1613,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457b12c299100434b96133b2dbf1168e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpeed: 1
+  timeAFK: 0.2
+  enemyRB: {fileID: 0}
+  isMoving: 0
 --- !u!212 &1446211639
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1801,6 +1833,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457b12c299100434b96133b2dbf1168e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpeed: 1
+  timeAFK: 0.2
+  enemyRB: {fileID: 0}
+  isMoving: 0
 --- !u!212 &1756194923
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2039,7 +2075,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9146fa88238f46c789919eaaa939e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3.5
+  enemySpeed: 3
+  timeAFK: 0.5
+  enemyRB: {fileID: 0}
+  isMoving: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

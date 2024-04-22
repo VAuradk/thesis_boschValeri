@@ -1,27 +1,25 @@
 using System.Collections;
 using UnityEngine;
 
-public class RandomMoveEnemy : MonoBehaviour
+public class RandomMoveEnemy : EnemyManagement
 {
-    [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float changeDirectionInterval = 2f;
 
-    private Rigidbody2D rb;
     private Vector2 moveDirection;
 
-    private void Awake()
+    public override void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-    }
-
-    private void Start()
-    {
+        base.Start();
         StartCoroutine(ChangeDirection());
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = moveDirection * moveSpeed;
+        if (isMoving)
+        {
+            enemyRB.velocity = moveDirection * enemySpeed;
+        }
+
     }
 
     private IEnumerator ChangeDirection()

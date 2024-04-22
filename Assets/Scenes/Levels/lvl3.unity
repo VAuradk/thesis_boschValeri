@@ -304,7 +304,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988b88daa29de4643b4e057f5669b49b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  enemySpeed: 1.5
+  timeAFK: 0.5
+  enemyRB: {fileID: 0}
+  isMoving: 0
   invisibilityDuration: 1.2
   invisibilityInterval: 3
 --- !u!61 &2112512398
