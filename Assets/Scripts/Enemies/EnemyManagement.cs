@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class EnemyManagement : MonoBehaviour
 {
-    [SerializeField] public float enemySpeed;
-    [SerializeField] public float timeAFK;
+    public float enemySpeed;
+    public float timeAFK;
     [HideInInspector] public Rigidbody2D enemyRB;
     [HideInInspector] public bool isMoving;
 

@@ -99,10 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6518c726d3264c32b9551cccb5e83c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 5140092342565484268}
   initialForce: 20
-  initialBounceForce: 20
-  maxBounces: 3
-  bounceForceDecay: 0.1
 --- !u!50 &5140092342565484268
 Rigidbody2D:
   serializedVersion: 4

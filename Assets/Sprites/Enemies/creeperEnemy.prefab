@@ -175,7 +175,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457b12c299100434b96133b2dbf1168e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 0
+  enemySpeed: 1
   timeAFK: 0
   enemyRB: {fileID: 0}
   isMoving: 0
+  squarePrefab: {fileID: 4113773329837969509, guid: 826f1d84b9bd64c5caf12999e2976791, type: 3}
+  numberOfSquares: 5
+  squareLifetime: 2
+  squareSpeed: 5

@@ -27,6 +27,14 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("EnemyFire"))
+        {
+            Die();
+        }
+    }
+
     private void Die()
     {
         StartCoroutine(Respawn(respawnTime));

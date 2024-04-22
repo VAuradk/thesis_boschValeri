@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00312076d54134ebcbe61b6c3569bac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
 --- !u!114 &7666005831125315090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ Transform:
   m_GameObject: {fileID: 3471410905784088569}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 1.27, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -277,7 +277,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3471410905784088569}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -369,5 +369,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1391181482063605950, guid: 4ab59cce3c2b8442998a0200aff9511a, type: 3}
   bulletTransform: {fileID: 4827513217151154074}
-  fireRate: 3
+  fireRate: 1
   bulletLiftime: 6
