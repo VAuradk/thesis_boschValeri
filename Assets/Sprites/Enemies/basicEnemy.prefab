@@ -164,7 +164,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -195,3 +195,4 @@ MonoBehaviour:
   timeAFK: 0
   enemyRB: {fileID: 0}
   isMoving: 0
+  decelerationRate: 0.5

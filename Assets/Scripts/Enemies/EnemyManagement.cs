@@ -10,7 +10,6 @@ public class EnemyManagement : MonoBehaviour
     [HideInInspector] public Rigidbody2D enemyRB;
     [HideInInspector] public bool isMoving;
 
-
     public virtual void Awake()
     {
         enemyRB = GetComponent<Rigidbody2D>();
@@ -29,7 +28,6 @@ public class EnemyManagement : MonoBehaviour
             isMoving = false;
             StartCoroutine(waitTime());
         }
-
     }
 
     private IEnumerator waitTime()

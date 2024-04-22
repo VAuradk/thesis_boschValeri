@@ -6,7 +6,6 @@ public class GameController : MonoBehaviour
 {
     Vector2 startPos;
     private Rigidbody2D rb;
-
     [SerializeField] private float respawnTime = 0.5f;
 
     private void Awake()

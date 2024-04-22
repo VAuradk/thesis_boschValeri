@@ -42,6 +42,6 @@ public class PlayerShooting : MonoBehaviour
 
     private Vector2 GetMouseWorldPosition()
     {
-        return mainCam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        return mainCam.ScreenToWorldPoint(Input.mousePosition);
     }
 }

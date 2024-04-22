@@ -9,6 +9,8 @@ TagManager:
   - Bullet
   - Key
   - EnemyFire
+  - NonKillableTrap
+  - socket
   layers:
   - Default
   - TransparentFX

@@ -19,7 +19,6 @@ public class RandomMoveEnemy : EnemyManagement
         {
             enemyRB.velocity = moveDirection * enemySpeed;
         }
-
     }
 
     private IEnumerator ChangeDirection()
@@ -28,6 +27,15 @@ public class RandomMoveEnemy : EnemyManagement
         {
             moveDirection = Random.insideUnitCircle.normalized;
             yield return new WaitForSeconds(changeDirectionInterval);
+        }
+    }
+
+    public override void OnCollisionEnter2D(Collision2D collision)
+    {
+        base.OnCollisionEnter2D(collision);
+        if (!collision.gameObject.CompareTag("Player"))
+        {
+            moveDirection = Random.insideUnitCircle.normalized;
         }
     }
 }

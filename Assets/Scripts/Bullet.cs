@@ -6,7 +6,6 @@ public class Bullet : MonoBehaviour
     [SerializeField] float speed = 30f;
     [SerializeField] int life = 3;
     private Rigidbody2D rb;
-
     private Vector2 direction;
 
     private void Awake()
