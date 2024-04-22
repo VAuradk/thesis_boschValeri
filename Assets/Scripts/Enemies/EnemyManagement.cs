@@ -25,7 +25,7 @@ public class EnemyManagement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Debug.Log(collision);
+            // Debug.Log(collision);
             isMoving = false;
             StartCoroutine(waitTime());
         }

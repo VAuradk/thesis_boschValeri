@@ -29,7 +29,7 @@ public class InvisibleEnemy : ChaseEnemy
         while (true)
         {
             isVisible = !isVisible;
-            spriteRenderer.enabled = isVisible;
+            EnableRender();
 
             if (isVisible)
             {
@@ -54,5 +54,16 @@ public class InvisibleEnemy : ChaseEnemy
             }
             visibilityCoroutine = StartCoroutine(ToggleVisibility());
         }
+
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            isVisible = true;
+            EnableRender();
+        }
+    }
+
+    private void EnableRender()
+    {
+        spriteRenderer.enabled = isVisible;
     }
 }
