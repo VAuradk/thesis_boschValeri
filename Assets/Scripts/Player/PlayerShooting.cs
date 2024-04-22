@@ -3,55 +3,45 @@ using UnityEngine.InputSystem;
 
 public class PlayerShooting : MonoBehaviour
 {
-    private Vector3 mousePos;
     private Camera mainCam;
-    public GameObject bullet;
-    public Transform bulletTransform;
-    private bool canFire = true;
+    public Bullet bulletPrefab;
+    public Transform bulletSpawnPos;
+    private Transform rotatePoint;
 
-    [SerializeField]
-    private float fireRate = 3f;
-    private float timer;
-    private PlayerInput input = null;
-
-    [SerializeField]
-    private float bulletLiftime = 6f;
-
-    void Start()
+    private void Awake()
     {
-        input = new PlayerInput();
+        rotatePoint = GetComponent<Transform>();
+    }
+    private void Start()
+    {
         mainCam = Camera.main;
-        input.Player.Shot.performed += OnShot;
     }
 
-    void Update()
+    private void Update()
     {
-        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 rotation = mousePos - transform.position;
-
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0, 0, rotZ);
-
-        if (!canFire)
-        {
-            timer += Time.deltaTime;
-            if (timer > fireRate)
-            {
-                canFire = true;
-                timer = 0;
-            }
-        }
+        RotateTowardsMouse();
     }
 
     public void OnShot(InputAction.CallbackContext context)
     {
-        if (canFire)
+        if (context.phase == InputActionPhase.Started)
         {
-            var bulletPref = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-            canFire = false;
-
-            Destroy(bulletPref, bulletLiftime);
+            Vector2 direction = GetMouseWorldPosition() - (Vector2)bulletSpawnPos.position;
+            Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPos.position, Quaternion.identity);
+            bullet.Shoot(direction.normalized);
         }
+    }
+
+    private void RotateTowardsMouse()
+    {
+        Vector3 mousePosition = GetMouseWorldPosition();
+        Vector3 direction = mousePosition - rotatePoint.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        rotatePoint.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    private Vector2 GetMouseWorldPosition()
+    {
+        return mainCam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
     }
 }

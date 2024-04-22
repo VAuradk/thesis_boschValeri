@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5792369464671137444}
   - component: {fileID: 8262439043015007820}
   - component: {fileID: 5140092342565484268}
-  - component: {fileID: 4052644228625084571}
+  - component: {fileID: 3112801916217671700}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b0f97dcc60bb14882a80bb84eaeda3c5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fa5c7daec21ae4f389199d0be8cd6369, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6518c726d3264c32b9551cccb5e83c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 5140092342565484268}
-  initialForce: 20
+  speed: 30
+  life: 4
 --- !u!50 &5140092342565484268
 Rigidbody2D:
   serializedVersion: 4
@@ -115,8 +115,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -128,8 +128,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!61 &4052644228625084571
-BoxCollider2D:
+--- !u!60 &3112801916217671700
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -160,16 +160,36 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5824902, y: 0.12191701}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.84, y: 11.84}
+    oldSize: {x: 1.6, y: 1.6}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.226991, y: 2.926548}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.79999995, y: -0.22999999}
+      - {x: 0.79999995, y: 0.22}
+      - {x: 0.7, y: 0.32}
+      - {x: 0.64, y: 0.41}
+      - {x: 0.53, y: 0.51}
+      - {x: 0.34, y: 0.72999996}
+      - {x: 0.22999999, y: 0.79999995}
+      - {x: -0.22, y: 0.79999995}
+      - {x: -0.42, y: 0.59999996}
+      - {x: -0.51, y: 0.53999996}
+      - {x: -0.71999997, y: 0.32999998}
+      - {x: -0.79999995, y: 0.22999999}
+      - {x: -0.79999995, y: -0.22}
+      - {x: -0.39999998, y: -0.62}
+      - {x: -0.34, y: -0.71}
+      - {x: -0.22999999, y: -0.79999995}
+      - {x: 0.22, y: -0.79999995}
+      - {x: 0.32, y: -0.7}
+      - {x: 0.52, y: -0.55}
+      - {x: 0.74, y: -0.31}
+  m_UseDelaunayMesh: 0

@@ -3,57 +3,52 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Vector3 mousePos;
-    private Camera mainCam;
+    [SerializeField] float speed = 30f;
+    [SerializeField] int life = 3;
     private Rigidbody2D rb;
 
-    [Header("Forces")]
-    [SerializeField] private float initialForce = 10f;
-    // [SerializeField] private float initialBounceForce = 5f;
+    private Vector2 direction;
 
-    // [Header("Bounces")]
-    // [SerializeField] private int maxBounces = 3;
-    // [SerializeField] private float bounceForceDecay = 0.8f;
-    // private float currentBounceForce;
-    // private int currentBounces = 0;
-
-    void Start()
+    private void Awake()
     {
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody2D>();
-        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = mousePos - transform.position;
-        Vector3 rotation = transform.position - mousePos;
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * initialForce;
-        float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rot);
-        // currentBounceForce = initialBounceForce;
     }
 
-    void Update() { }
+    public void Shoot(Vector2 direction)
+    {
+        this.direction = direction;
+        rb.velocity = this.direction * speed;
+
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.gameObject.CompareTag("Player"))
+
+        if (collision.gameObject.CompareTag("Wall"))
         {
-            Destroy(gameObject);
+            life--;
+            if (life < 0)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            var firstContact = collision.contacts[0];
+            Vector2 newVelocity = Vector2.Reflect(direction.normalized, firstContact.normal);
+            Shoot(newVelocity.normalized);
         }
 
-        // if (collision.gameObject.CompareTag("Wall") && currentBounces < maxBounces)
-        // {
-        //     Vector2 reflection = Vector2.Reflect(rb.velocity, collision.contacts[0].normal);
-        //     rb.velocity = reflection.normalized * currentBounceForce;
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+            return;
+        }
 
-        //     if (currentBounces > 0)
-        //     {
-        //         currentBounceForce *= bounceForceDecay;
-        //     }
-        //     currentBounces++;
-        // }
-
-        // else if (!collision.gameObject.CompareTag("Wall") && !collision.gameObject.CompareTag("Player") || currentBounces >= maxBounces)
+        // if (collision.gameObject.CompareTag("Player"))
         // {
-        //     Destroy(gameObject);
+
+        //     Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        //     Debug.Log("Player got hit");
         // }
     }
 }
