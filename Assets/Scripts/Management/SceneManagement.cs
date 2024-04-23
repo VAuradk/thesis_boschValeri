@@ -29,4 +29,9 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(sceneName);
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

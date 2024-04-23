@@ -1,20 +1,17 @@
-using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyManagement : MonoBehaviour
 {
     public float enemySpeed;
     public float timeAFK;
+    [SerializeField] private float knockbackForce = 10f;
     [HideInInspector] public Rigidbody2D enemyRB;
-    // [HideInInspector] public Transform enemyTransform;
     [HideInInspector] public bool isMoving;
     [HideInInspector] public TagManagement tagManager;
 
     public virtual void Awake()
     {
-        // enemyTransform = GetComponent<Transform>();
         enemyRB = GetComponent<Rigidbody2D>();
         tagManager = FindObjectOfType<TagManagement>();
     }
@@ -28,9 +25,9 @@ public class EnemyManagement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            // Debug.Log(collision);
+            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
+            enemyRB.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
             isMoving = false;
-            // enemyRB.velocity *= 2;
             StartCoroutine(waitTime());
         }
     }
@@ -41,4 +38,3 @@ public class EnemyManagement : MonoBehaviour
         isMoving = true;
     }
 }
-
