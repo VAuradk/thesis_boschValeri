@@ -382,6 +382,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8262439043015007820, guid: 4ab59cce3c2b8442998a0200aff9511a, type: 3}
-  godMode: {fileID: 3387432465712620225}
   bulletSpawnPos: {fileID: 4827513217151154074}
-  fireRate: 1
+  fireRate: 1.2

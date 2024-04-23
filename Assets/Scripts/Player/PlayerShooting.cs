@@ -5,7 +5,6 @@ public class PlayerShooting : MonoBehaviour
 {
     private Camera mainCam;
     public Bullet bulletPrefab;
-    [SerializeField] private PlayerManagement godMode;
     public Transform bulletSpawnPos;
     private Transform rotatePoint;
 
@@ -25,11 +24,6 @@ public class PlayerShooting : MonoBehaviour
     private void Update()
     {
         RotateTowardsMouse();
-
-        while(godMode.godMode){
-            fireRate = 0;
-            nextFireTime = 0;
-        }
     }
 
     public void OnShot(InputAction.CallbackContext context)
