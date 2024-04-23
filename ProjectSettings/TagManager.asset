@@ -11,6 +11,7 @@ TagManager:
   - EnemyFire
   - NonKillableTrap
   - socket
+  - godMode
   layers:
   - Default
   - TransparentFX

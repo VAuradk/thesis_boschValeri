@@ -6,7 +6,7 @@ public class KeyEntrance : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.CompareTag("godMode"))
         {
             playerKey = true;
             Destroy(gameObject);

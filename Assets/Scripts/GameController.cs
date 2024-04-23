@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && gameObject.tag != "godMode")
         {
             Die();
         }
@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("EnemyFire"))
+        if (collider.gameObject.CompareTag("EnemyFire") && gameObject.tag != "godMode")
         {
             Die();
         }

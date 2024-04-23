@@ -27,7 +27,7 @@ public class CreeperEnemy : EnemyManagement
             squareRb.velocity = randomDirection * squareSpeed;
             Destroy(square, squareLifetime);
         }
-
+        
         Destroy(gameObject);
     }
 }

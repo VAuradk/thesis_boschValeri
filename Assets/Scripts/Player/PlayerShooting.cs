@@ -5,13 +5,18 @@ public class PlayerShooting : MonoBehaviour
 {
     private Camera mainCam;
     public Bullet bulletPrefab;
+    [SerializeField] private PlayerManagement godMode;
     public Transform bulletSpawnPos;
     private Transform rotatePoint;
+
+    [SerializeField] private float fireRate = 0.5f;
+    private float nextFireTime = 0f;
 
     private void Awake()
     {
         rotatePoint = GetComponent<Transform>();
     }
+
     private void Start()
     {
         mainCam = Camera.main;
@@ -20,15 +25,21 @@ public class PlayerShooting : MonoBehaviour
     private void Update()
     {
         RotateTowardsMouse();
+
+        while(godMode.godMode){
+            fireRate = 0;
+            nextFireTime = 0;
+        }
     }
 
     public void OnShot(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started)
+        if (context.phase == InputActionPhase.Started && Time.time >= nextFireTime)
         {
             Vector2 direction = GetMouseWorldPosition() - (Vector2)bulletSpawnPos.position;
             Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPos.position, Quaternion.identity);
             bullet.Shoot(direction.normalized);
+            nextFireTime = Time.time + fireRate;
         }
     }
 
