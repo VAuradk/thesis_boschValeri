@@ -9,7 +9,7 @@ public class Socket : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("enemyBasic"))
         {
             Rigidbody2D idk = collision.GetComponentInChildren<Rigidbody2D>();
             idk.simulated = false;

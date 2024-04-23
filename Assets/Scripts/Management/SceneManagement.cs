@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneController : MonoBehaviour
+public class SceneManagement : MonoBehaviour
 {
-    public static SceneController instance;
+    public static SceneManagement instance;
 
     private void Awake()
     {

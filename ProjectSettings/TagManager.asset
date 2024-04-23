@@ -12,6 +12,15 @@ TagManager:
   - NonKillableTrap
   - socket
   - godMode
+  - enemyBasic
+  - enemyChase
+  - enemyCreeper
+  - enemyInvisible
+  - enemyRandom
+  - DoNotDestroy
+  - collisionWall
+  - collisionTrap
+  - enemyFire
   layers:
   - Default
   - TransparentFX

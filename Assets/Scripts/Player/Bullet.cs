@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] int life = 3;
     private Rigidbody2D rb;
     private Vector2 direction;
+    private TagManagement tagManager;
 
     private void Awake()
     {
@@ -17,13 +18,14 @@ public class Bullet : MonoBehaviour
     {
         this.direction = direction;
         rb.velocity = this.direction * speed;
+        tagManager = FindObjectOfType<TagManagement>();
 
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.CompareTag("Wall"))
+        if (tagManager.IsInTagCategory(collision.gameObject.tag, "Collisions"))
         {
             life--;
             if (life < 0)
@@ -36,8 +38,7 @@ public class Bullet : MonoBehaviour
             Vector2 newVelocity = Vector2.Reflect(direction.normalized, firstContact.normal);
             Shoot(newVelocity.normalized);
         }
-
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (tagManager.IsInTagCategory(collision.gameObject.tag, "Enemies"))
         {
             Destroy(gameObject);
             return;

@@ -10,7 +10,7 @@ public class CreeperEnemy : EnemyManagement
     public override void OnCollisionEnter2D(Collision2D collision)
     {
         base.OnCollisionEnter2D(collision);
-        if (collision.collider.CompareTag("Bullet") || collision.collider.CompareTag("Enemy"))
+        if (collision.collider.CompareTag("Bullet") || tagManager.IsInTagCategory(collision.gameObject.tag, "Enemies"))
         {
             DestroyEnemy();
         }
@@ -27,7 +27,7 @@ public class CreeperEnemy : EnemyManagement
             squareRb.velocity = randomDirection * squareSpeed;
             Destroy(square, squareLifetime);
         }
-        
+
         Destroy(gameObject);
     }
 }

@@ -9,7 +9,7 @@ public class ChaseEnemy : EnemyManagement
     public override void Start()
     {
         base.Start();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("playerNormalMode").transform;
     }
 
     public virtual void Update()

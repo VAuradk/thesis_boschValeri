@@ -9,10 +9,12 @@ public class EnemyManagement : MonoBehaviour
     public float timeAFK;
     [HideInInspector] public Rigidbody2D enemyRB;
     [HideInInspector] public bool isMoving;
+    [HideInInspector] public TagManagement tagManager;
 
     public virtual void Awake()
     {
         enemyRB = GetComponent<Rigidbody2D>();
+        tagManager = FindObjectOfType<TagManagement>();
     }
 
     public virtual void Start()

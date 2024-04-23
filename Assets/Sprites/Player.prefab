@@ -15,10 +15,9 @@ GameObject:
   - component: {fileID: 2061695505304425458}
   - component: {fileID: 7010835072889584964}
   - component: {fileID: 7666005831125315090}
-  - component: {fileID: 3387432465712620225}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: playerNormalMode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,18 +238,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnTime: 0.5
---- !u!114 &3387432465712620225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1032494873216465163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05e097700e784801a645c67d94cbcd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   godMode: 0
 --- !u!1 &3471410905784088569
 GameObject:

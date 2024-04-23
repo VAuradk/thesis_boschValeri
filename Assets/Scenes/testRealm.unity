@@ -375,7 +375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6690393976231170918, guid: d2a1625eaa44549f6aa1afbb2c1943ed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8253693696038467905, guid: d2a1625eaa44549f6aa1afbb2c1943ed, type: 3}
       propertyPath: m_IsTrigger
@@ -411,9 +411,10 @@ GameObject:
   m_Component:
   - component: {fileID: 182102436}
   - component: {fileID: 182102437}
+  - component: {fileID: 182102438}
   m_Layer: 0
-  m_Name: gameManager
-  m_TagString: Untagged
+  m_Name: DoNotDestroy
+  m_TagString: DoNotDestroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -443,6 +444,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a72f3e62505d343be85d0986279f9bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &182102438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182102435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303f68de5023cd5448808317d00325fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &246416587
@@ -785,10 +798,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1032494873216465163, guid: b672f8c397a084eb0a607b0028fa12a8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1445920990}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b672f8c397a084eb0a607b0028fa12a8, type: 3}
 --- !u!1001 &906088955
 PrefabInstance:
@@ -922,7 +932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!60 &1143803905
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1239,24 +1249,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2a1625eaa44549f6aa1afbb2c1943ed, type: 3}
---- !u!1 &1445920982 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1032494873216465163, guid: b672f8c397a084eb0a607b0028fa12a8, type: 3}
-  m_PrefabInstance: {fileID: 676090642}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1445920990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445920982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05e097700e784801a645c67d94cbcd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  godMode: 0
 --- !u!1 &1786766748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,11 +1263,11 @@ GameObject:
   - component: {fileID: 1786766752}
   m_Layer: 0
   m_Name: Laser
-  m_TagString: NonKillableTrap
+  m_TagString: collisionTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!60 &1786766749
 PolygonCollider2D:
   m_ObjectHideFlags: 0
