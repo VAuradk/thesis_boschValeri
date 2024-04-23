@@ -19,7 +19,6 @@ public class Bullet : MonoBehaviour
         this.direction = direction;
         rb.velocity = this.direction * speed;
         tagManager = FindObjectOfType<TagManagement>();
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -38,17 +37,11 @@ public class Bullet : MonoBehaviour
             Vector2 newVelocity = Vector2.Reflect(direction.normalized, firstContact.normal);
             Shoot(newVelocity.normalized);
         }
+
         if (tagManager.IsInTagCategory(collision.gameObject.tag, "Enemies"))
         {
             Destroy(gameObject);
             return;
         }
-
-        // if (collision.gameObject.CompareTag("Player"))
-        // {
-
-        //     Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
-        //     Debug.Log("Player got hit");
-        // }
     }
 }

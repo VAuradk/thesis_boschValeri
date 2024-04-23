@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Timeline;
 
 public class SceneManagement : MonoBehaviour
 {
+    [HideInInspector] public TagManagement tagManager;
     public static SceneManagement instance;
 
     private void Awake()

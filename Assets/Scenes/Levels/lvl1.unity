@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 284402171}
   m_Layer: 0
   m_Name: wall (5)
-  m_TagString: Wall
+  m_TagString: collisionWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 291815422}
   m_Layer: 0
   m_Name: wall (6)
-  m_TagString: Wall
+  m_TagString: collisionWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1012,7 +1012,7 @@ GameObject:
   - component: {fileID: 1392104347}
   m_Layer: 0
   m_Name: wall (4)
-  m_TagString: Wall
+  m_TagString: collisionWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

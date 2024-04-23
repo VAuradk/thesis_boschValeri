@@ -191,8 +191,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d6bfa8ed3fa4bc38a860dd4dd49dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 1.5
-  timeAFK: 0.5
+  enemySpeed: 3
+  timeAFK: 1
   enemyRB: {fileID: 0}
   isMoving: 0
+  tagManager: {fileID: 0}
   changeDirectionInterval: 4

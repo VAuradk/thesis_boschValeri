@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 2
-  timeAFK: 0.5
+  timeAFK: 1
   enemyRB: {fileID: 0}
   isMoving: 0
+  tagManager: {fileID: 0}

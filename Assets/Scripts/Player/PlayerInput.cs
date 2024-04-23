@@ -44,6 +44,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""29daf82b-676d-4661-977f-e60a5258ff73"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -222,6 +231,39 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Shot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""abc4cc04-55e0-4f2b-95c8-d52b48ecbe60"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3f0e7fe6-dce2-4d8c-8152-d44b7834dab5"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0824d163-9b6b-430c-868e-6314559f4a51"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -232,6 +274,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Shot = m_Player.FindAction("Shot", throwIfNotFound: true);
+        m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -295,12 +338,14 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Shot;
+    private readonly InputAction m_Player_Menu;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Shot => m_Wrapper.m_Player_Shot;
+        public InputAction @Menu => m_Wrapper.m_Player_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -316,6 +361,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
             @Shot.started += instance.OnShot;
             @Shot.performed += instance.OnShot;
             @Shot.canceled += instance.OnShot;
+            @Menu.started += instance.OnMenu;
+            @Menu.performed += instance.OnMenu;
+            @Menu.canceled += instance.OnMenu;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -326,6 +374,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
             @Shot.started -= instance.OnShot;
             @Shot.performed -= instance.OnShot;
             @Shot.canceled -= instance.OnShot;
+            @Menu.started -= instance.OnMenu;
+            @Menu.performed -= instance.OnMenu;
+            @Menu.canceled -= instance.OnMenu;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -347,5 +398,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnShot(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
 }

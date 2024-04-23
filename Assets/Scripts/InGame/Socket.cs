@@ -14,7 +14,7 @@ public class Socket : MonoBehaviour
             Rigidbody2D idk = collision.GetComponentInChildren<Rigidbody2D>();
             idk.simulated = false;
             isEmpty = false;
-            Debug.Log(isEmpty);
+            // Debug.Log(isEmpty);
         }
     }
 }

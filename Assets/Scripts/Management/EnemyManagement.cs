@@ -8,11 +8,13 @@ public class EnemyManagement : MonoBehaviour
     public float enemySpeed;
     public float timeAFK;
     [HideInInspector] public Rigidbody2D enemyRB;
+    // [HideInInspector] public Transform enemyTransform;
     [HideInInspector] public bool isMoving;
     [HideInInspector] public TagManagement tagManager;
 
     public virtual void Awake()
     {
+        // enemyTransform = GetComponent<Transform>();
         enemyRB = GetComponent<Rigidbody2D>();
         tagManager = FindObjectOfType<TagManagement>();
     }
@@ -28,6 +30,7 @@ public class EnemyManagement : MonoBehaviour
         {
             // Debug.Log(collision);
             isMoving = false;
+            // enemyRB.velocity *= 2;
             StartCoroutine(waitTime());
         }
     }

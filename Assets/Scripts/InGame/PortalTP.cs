@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class PortalTP : MonoBehaviour
+public class PortalTP : SceneManagement
 {
     [SerializeField] private KeyEntrance key;
-    private TagManagement tagManager;
 
     private void Awake()
     {
@@ -16,7 +15,7 @@ public class PortalTP : MonoBehaviour
         {
             if (key.playerKey == true)
             {
-                SceneManagement.instance.NextLevel();
+                NextLevel();
             }
         }
     }
