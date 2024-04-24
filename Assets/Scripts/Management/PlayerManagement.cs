@@ -10,13 +10,16 @@ public class PlayerManagement : MonoBehaviour
     private TagManagement tagManager;
     [SerializeField] private bool godMode;
     private Transform tagPlayer;
+    // private StatisticsManagement gameStatistics;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         tagManager = FindObjectOfType<TagManagement>();
+        // gameStatistics = FindObjectOfType<StatisticsManagement>();
         godMode = false;
         tagPlayer = transform;
+
     }
 
     public void Update()
@@ -60,6 +63,7 @@ public class PlayerManagement : MonoBehaviour
 
     private void Die()
     {
+        // gameStatistics.PlayerDied();
         StartCoroutine(Respawn(respawnTime));
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
