@@ -193,9 +193,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 1
   timeAFK: 0.5
-  knockbackForce: 10
+  knockbackForce: 6
   enemyRB: {fileID: 0}
+  enemyTransform: {fileID: 0}
   isMoving: 0
   tagManager: {fileID: 0}
   decelerationRate: 0.5
-  angularDecelerationRate: 1

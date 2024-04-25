@@ -8,21 +8,9 @@ public class Socket : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("enemyBasic"))
         {
-            // Get the Rigidbody2D component of the enemy
-            Rigidbody2D enemyRB = collision.GetComponentInChildren<Rigidbody2D>();
-
-            // Get the position of the socket
-            Vector2 socketPosition = transform.position;
-
-            // Set the position of the enemy to match the position of the socket
-            enemyRB.position = socketPosition;
-
-            // Disable physics simulation for the enemy
-            enemyRB.simulated = false;
-
-            // Update the isEmpty flag
+            Rigidbody2D idk = collision.GetComponentInChildren<Rigidbody2D>();
+            idk.simulated = false;
             isEmpty = false;
-
             // Debug.Log(isEmpty);
         }
     }
