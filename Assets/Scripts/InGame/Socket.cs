@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Socket : MonoBehaviour
@@ -11,9 +8,21 @@ public class Socket : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("enemyBasic"))
         {
-            Rigidbody2D idk = collision.GetComponentInChildren<Rigidbody2D>();
-            idk.simulated = false;
+            // Get the Rigidbody2D component of the enemy
+            Rigidbody2D enemyRB = collision.GetComponentInChildren<Rigidbody2D>();
+
+            // Get the position of the socket
+            Vector2 socketPosition = transform.position;
+
+            // Set the position of the enemy to match the position of the socket
+            enemyRB.position = socketPosition;
+
+            // Disable physics simulation for the enemy
+            enemyRB.simulated = false;
+
+            // Update the isEmpty flag
             isEmpty = false;
+
             // Debug.Log(isEmpty);
         }
     }

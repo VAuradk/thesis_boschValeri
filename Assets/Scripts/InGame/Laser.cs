@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    [SerializeField] private Socket disable;
+    [SerializeField] private Socket socket;
     private SpriteRenderer render;
     private PolygonCollider2D laserCollider;
 
@@ -14,7 +14,7 @@ public class Laser : MonoBehaviour
 
     private void Update()
     {
-        if (disable.isEmpty == false)
+        if (socket.isEmpty == false)
         {
             render.enabled = false;
             laserCollider.enabled = false;

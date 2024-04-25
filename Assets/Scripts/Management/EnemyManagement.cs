@@ -7,6 +7,7 @@ public class EnemyManagement : MonoBehaviour
     public float timeAFK;
     [SerializeField] private float knockbackForce = 10f;
     [HideInInspector] public Rigidbody2D enemyRB;
+    [HideInInspector] public Transform enemyTransform;
     [HideInInspector] public bool isMoving;
     [HideInInspector] public TagManagement tagManager;
 
@@ -14,11 +15,14 @@ public class EnemyManagement : MonoBehaviour
     {
         enemyRB = GetComponent<Rigidbody2D>();
         tagManager = FindObjectOfType<TagManagement>();
+        enemyTransform = GetComponent<Transform>();
     }
 
     public virtual void Start()
     {
         isMoving = true;
+        enemyTransform.rotation = Quaternion.identity;
+        enemyRB.freezeRotation = true;
     }
 
     public virtual void OnCollisionEnter2D(Collision2D collision)
