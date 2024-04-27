@@ -19,7 +19,6 @@ public class PlayerManagement : MonoBehaviour
         // gameStatistics = FindObjectOfType<StatisticsManagement>();
         godMode = false;
         tagPlayer = transform;
-
     }
 
     public void Update()
