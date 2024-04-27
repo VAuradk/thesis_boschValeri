@@ -3,32 +3,34 @@ using UnityEngine;
 public class Socket : MonoBehaviour
 {
     [HideInInspector] public bool isEmpty = true;
-    Vector2 socketPosition;
-    public GameObject socketFiller;
+    private Vector2 socketPosition;
+    [SerializeField] private float threshold = 0.1f;
 
     private void Start()
     {
-        socketPosition = gameObject.transform.position;
-
+        socketPosition = transform.position;
     }
 
     private void Update()
     {
-        if (Vector2.Distance(socketPosition, socketFiller.GetComponent<Transform>().position) < 0.2)
+        if (!isEmpty)
         {
-            socketFiller.GetComponent<Transform>().position = socketPosition;
-            isEmpty = false;
-            socketFiller.GetComponent<Rigidbody2D>().simulated = false;
+            return;
         }
-    }
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
 
-        if (collision.gameObject.CompareTag("enemyBasic"))
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemyBasic");
+
+        foreach (GameObject enemy in enemies)
         {
-            Rigidbody2D idk = collision.GetComponentInChildren<Rigidbody2D>();
-            idk.simulated = false;
-            // Debug.Log(isEmpty);
+            if (Vector2.Distance(socketPosition, enemy.transform.position) < threshold)
+            {
+                isEmpty = false;
+                Rigidbody2D enemyRigidbody = enemy.GetComponent<Rigidbody2D>();
+                enemyRigidbody.simulated = false;
+                enemy.transform.position = socketPosition;
+                SpriteRenderer enemyColor = enemy.GetComponent<SpriteRenderer>();
+                enemyColor.color = new Color(255f, 255f, 255f, 0.5f);
+            }
         }
     }
 }
