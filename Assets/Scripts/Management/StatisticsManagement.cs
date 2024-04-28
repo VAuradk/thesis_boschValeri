@@ -1,70 +1,72 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using TMPro;
 
 public class StatisticsManagement : MonoBehaviour
 {
-    // private float startTime;
+    public TMP_Text timerText;
+    public TMP_Text deathCounterText;
+
+    private float startTime;
+    private bool isRunning;
     private int numberOfDeaths;
-    // public Text timerText;
-    // public Text deathCounterText;
 
-    private void Start()
+    private void OnEnable()
     {
-        // startTime = PlayerPrefs.GetFloat("StartTime", 0f);
-        numberOfDeaths = PlayerPrefs.GetInt("NumberOfDeaths", 0);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
-        // UpdateTimerText();
-        // UpdateDeathCounterText();
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 1)
+        {
+            StartTimer();
+        }
     }
 
     private void Update()
     {
-        // if (startTime > 0f)
-        // {
-        //     float elapsedTime = Time.realtimeSinceStartup - startTime;
-        //     UpdateTimerText(elapsedTime);
-        //     Debug.Log(elapsedTime);
-        // }
-        Debug.Log(numberOfDeaths);
-
+        if (isRunning)
+        {
+            float elapsedTime = Time.time - startTime;
+            UpdateTimerText(elapsedTime);
+        }
     }
 
     public void ResetGame()
     {
-        // startTime = Time.realtimeSinceStartup;
         numberOfDeaths = 0;
-
-        // PlayerPrefs.SetFloat("StartTime", startTime);
-        PlayerPrefs.SetInt("NumberOfDeaths", numberOfDeaths);
-
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        isRunning = false;
     }
 
     public void PlayerDied()
     {
         numberOfDeaths++;
-
-        // UpdateDeathCounterText();
+        UpdateDeathCounterText();
     }
 
-    // private void UpdateTimerText(float elapsedTime = 0f)
-    // {
-    // float totalSeconds = elapsedTime > 0f ? elapsedTime : Time.realtimeSinceStartup - startTime;
-    // int minutes = Mathf.FloorToInt(totalSeconds / 60f);
-    // int seconds = Mathf.FloorToInt(totalSeconds % 60f);
-    // string timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
-    // timerText.text = "Time: " + timerString;
-    // }
+    public void StartTimer()
+    {
+        startTime = Time.time;
+        isRunning = true;
+    }
 
-    // private void UpdateDeathCounterText()
-    // {
-    //     deathCounterText.text = "Deaths: " + numberOfDeaths;
-    // }
+    private void UpdateTimerText(float elapsedTime)
+    {
+        int minutes = Mathf.FloorToInt(elapsedTime / 60f);
+        int seconds = Mathf.FloorToInt(elapsedTime % 60f);
+        string timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerText.text = "Time: " + timerString;
+    }
 
-    // internal static void PlayerDie()
-    // {
-    //     throw new NotImplementedException();
-    // }
+    private void UpdateDeathCounterText()
+    {
+        deathCounterText.text = "Deaths: " + numberOfDeaths;
+    }
 }
