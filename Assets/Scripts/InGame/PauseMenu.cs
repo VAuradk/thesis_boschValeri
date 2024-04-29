@@ -1,49 +1,37 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] GameObject pauseMenu;
-    private bool isMenuActive = false;
+    public GameObject pausePanel;
 
+    // Método para pausar el juego
     public void Pause()
     {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0;
+        pausePanel.SetActive(true);
+        Time.timeScale = 0f; // Pausar el tiempo
     }
 
+    // Método para ir al menú principal
     public void Home()
     {
         SceneManager.LoadScene("mainMenu");
-        Time.timeScale = 1;
+        Time.timeScale = 1f; // Restaurar el tiempo
+        pausePanel.SetActive(false);
     }
 
+    // Método para reanudar el juego
     public void Resume()
     {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1;
+        pausePanel.SetActive(false);
+        Time.timeScale = 1f; // Restaurar el tiempo
     }
 
+    // Método para reiniciar la escena actual
     public void Restart()
     {
+        pausePanel.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1;
-    }
-
-    public void OnMenu(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            if (isMenuActive)
-            {
-                Resume(); // Call Resume if the menu is active
-            }
-            else
-            {
-                Pause(); // Call Pause if the menu is not active
-            }
-            isMenuActive = !isMenuActive; // Toggle the menu state
-        }
+        Time.timeScale = 1f; // Restaurar el tiempo
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerManagement : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerManagement : MonoBehaviour
     [SerializeField] private bool godMode;
     private Transform tagPlayer;
     private StatisticsManagement gameStatistics;
+    private InputAction pauseAction;
+    private GameManager gameManager;
 
     private void Awake()
     {
@@ -19,6 +22,13 @@ public class PlayerManagement : MonoBehaviour
         gameStatistics = FindObjectOfType<StatisticsManagement>();
         godMode = false;
         tagPlayer = transform;
+
+        // Obtener referencia al GameManager
+        gameManager = FindObjectOfType<GameManager>();
+
+        // Configurar la acción de pausa
+        pauseAction = new InputAction(binding: "<Keyboard>/escape");
+        pauseAction.performed += context => gameManager.OnMenu(context);
     }
 
     public void Update()
@@ -90,5 +100,17 @@ public class PlayerManagement : MonoBehaviour
         transform.eulerAngles = Vector3.zero;
         transform.localScale = new Vector3((float)0.5, (float)0.5, (float)0.5);
         rb.simulated = true;
+    }
+
+    private void OnEnable()
+    {
+        // Habilitar la acción de pausa cuando el jugador está activo
+        pauseAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        // Deshabilitar la acción de pausa cuando el jugador está desactivado
+        pauseAction.Disable();
     }
 }

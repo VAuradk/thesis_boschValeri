@@ -41,7 +41,7 @@ public class StatisticsManagement : MonoBehaviour
     public void ResetGame()
     {
         numberOfDeaths = 0;
-        isRunning = false;
+        // isRunning = false;
     }
 
     public void PlayerDied()

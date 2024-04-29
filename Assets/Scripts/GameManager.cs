@@ -1,39 +1,39 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
-
-    public static GameManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<GameManager>();
-                if (_instance == null)
-                {
-                    GameObject managerObject = new GameObject("GameManager");
-                    _instance = managerObject.AddComponent<GameManager>();
-                    DontDestroyOnLoad(managerObject);
-                }
-            }
-            return _instance;
-        }
-    }
-
-    public GameObject canvas; // Reference to the canvas
+    public GameObject pauseMenu;
+    private bool isGamePaused = false;
 
     private void Start()
     {
-        if (_instance == null)
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("playerNormalMode");
+    }
+
+    public void OnMenu(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
+            TogglePause();
         }
-        else
+    }
+
+    private void TogglePause()
+    {
+        isGamePaused = !isGamePaused;
+        Time.timeScale = isGamePaused ? 0f : 1f;
+
+        if (pauseMenu != null)
         {
-            Destroy(gameObject);
+            pauseMenu.SetActive(isGamePaused);
         }
     }
 }
