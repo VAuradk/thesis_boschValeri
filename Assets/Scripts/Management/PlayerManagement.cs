@@ -14,6 +14,7 @@ public class PlayerManagement : MonoBehaviour
     private StatisticsManagement gameStatistics;
     private InputAction pauseAction;
     private GameManager gameManager;
+    private bool hasDied = false;
 
     private void Awake()
     {
@@ -22,11 +23,7 @@ public class PlayerManagement : MonoBehaviour
         gameStatistics = FindObjectOfType<StatisticsManagement>();
         godMode = false;
         tagPlayer = transform;
-
-        // Obtener referencia al GameManager
         gameManager = FindObjectOfType<GameManager>();
-
-        // Configurar la acción de pausa
         pauseAction = new InputAction(binding: "<Keyboard>/escape");
         pauseAction.performed += context => gameManager.OnMenu(context);
     }
@@ -47,7 +44,7 @@ public class PlayerManagement : MonoBehaviour
 
     private void HandleEnemyCollision(Collider2D collider)
     {
-        if (tagManager.IsInTagCategory(collider.gameObject.tag, "Enemies"))
+        if (tagManager.IsInTagCategory(collider.gameObject.tag, "Enemies") && !hasDied)
         {
             if (!godMode)
             {
@@ -57,6 +54,7 @@ public class PlayerManagement : MonoBehaviour
             {
                 return;
             }
+            hasDied = true;
         }
     }
 
@@ -104,13 +102,11 @@ public class PlayerManagement : MonoBehaviour
 
     private void OnEnable()
     {
-        // Habilitar la acción de pausa cuando el jugador está activo
         pauseAction.Enable();
     }
 
     private void OnDisable()
     {
-        // Deshabilitar la acción de pausa cuando el jugador está desactivado
         pauseAction.Disable();
     }
 }

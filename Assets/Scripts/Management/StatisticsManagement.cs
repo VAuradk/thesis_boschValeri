@@ -27,6 +27,17 @@ public class StatisticsManagement : MonoBehaviour
         {
             StartTimer();
         }
+
+        if (scene.buildIndex == 0)
+        {
+            timerText.enabled = false;
+            deathCounterText.enabled = false;
+        }
+        else
+        {
+            timerText.enabled = true;
+            deathCounterText.enabled = true;
+        }
     }
 
     private void Update()
@@ -41,6 +52,7 @@ public class StatisticsManagement : MonoBehaviour
     public void ResetGame()
     {
         numberOfDeaths = 0;
+        UpdateDeathCounterText();
         // isRunning = false;
     }
 
