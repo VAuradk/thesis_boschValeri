@@ -13,7 +13,7 @@ public class PlayerManagement : MonoBehaviour
     private Transform tagPlayer;
     private StatisticsManagement gameStatistics;
     private InputAction pauseAction;
-    private GameManager gameManager;
+    private GameControl gameControl;
     private bool hasDied = false;
 
     private void Awake()
@@ -23,9 +23,9 @@ public class PlayerManagement : MonoBehaviour
         gameStatistics = FindObjectOfType<StatisticsManagement>();
         godMode = false;
         tagPlayer = transform;
-        gameManager = FindObjectOfType<GameManager>();
+        gameControl = FindObjectOfType<GameControl>();
         pauseAction = new InputAction(binding: "<Keyboard>/escape");
-        pauseAction.performed += context => gameManager.OnMenu(context);
+        pauseAction.performed += context => gameControl.OnMenu(context);
     }
 
     public void Update()

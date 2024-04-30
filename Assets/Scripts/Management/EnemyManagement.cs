@@ -1,15 +1,17 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
 public class EnemyManagement : MonoBehaviour
 {
     public float enemySpeed;
     public float timeAFK;
-    [SerializeField] private float knockbackForce = 10f;
+    [SerializeField] private float knockbackForce = 5f;
     [HideInInspector] public Rigidbody2D enemyRB;
     [HideInInspector] public Transform enemyTransform;
     [HideInInspector] public bool isMoving;
     [HideInInspector] public TagManagement tagManager;
+
+    private Vector2 lastBulletDirection;
 
     public virtual void Awake()
     {
@@ -29,16 +31,38 @@ public class EnemyManagement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-            enemyRB.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
-            isMoving = false;
-            StartCoroutine(waitTime());
+            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+
+            if (bullet != null)
+            {
+                lastBulletDirection = bullet.direction.normalized;
+                ApplyKnockback();
+                isMoving = false;
+                StartCoroutine(WaitTime());
+            }
         }
     }
 
-    private IEnumerator waitTime()
+    private void ApplyKnockback()
+    {
+        enemyRB.velocity = lastBulletDirection * knockbackForce;
+    }
+
+    private IEnumerator WaitTime()
     {
         yield return new WaitForSeconds(timeAFK);
         isMoving = true;
+    }
+
+    public void OnCollisionStay2D(Collision2D collision)
+    {
+        if (isMoving && tagManager.IsInTagCategory(collision.gameObject.tag, "Collisions"))
+        {
+            Vector2 normal = collision.contacts[0].normal;
+            lastBulletDirection = (lastBulletDirection - 2 * Vector2.Dot(lastBulletDirection, normal) * normal).normalized;
+            ApplyKnockback();
+            isMoving = false;
+            StartCoroutine(WaitTime());
+        }
     }
 }

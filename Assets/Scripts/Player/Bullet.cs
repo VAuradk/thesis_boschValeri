@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] float speed = 30f;
     [SerializeField] int life = 3;
     private Rigidbody2D rb;
-    private Vector2 direction;
+    public Vector2 direction;
     private TagManagement tagManager;
 
     private void Awake()
@@ -23,10 +23,10 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (tagManager.IsInTagCategory(collision.gameObject.tag, "Collisions"))
         {
             life--;
+
             if (life < 0)
             {
                 Destroy(gameObject);

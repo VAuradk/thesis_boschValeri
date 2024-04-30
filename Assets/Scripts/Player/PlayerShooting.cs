@@ -7,7 +7,6 @@ public class PlayerShooting : MonoBehaviour
     public Bullet bulletPrefab;
     public Transform bulletSpawnPos;
     private Transform rotatePoint;
-
     [SerializeField] private float fireRate = 0.5f;
     private float nextFireTime = 0f;
 

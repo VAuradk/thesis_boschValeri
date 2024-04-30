@@ -62,6 +62,7 @@ public class TagManagement : MonoBehaviour
     public Transform GetTransformWithTag(string tag)
     {
         GameObject taggedObject = GameObject.FindGameObjectWithTag(tag);
+
         if (taggedObject != null)
         {
             return taggedObject.transform;

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1026778017674897830}
   - component: {fileID: 3067651024363547981}
-  - component: {fileID: 8253693696038467905}
+  - component: {fileID: 9097845012597975872}
   - component: {fileID: 8973770938365989062}
   - component: {fileID: 4554166940183812837}
   m_Layer: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &8253693696038467905
+--- !u!60 &9097845012597975872
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,7 +164,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 7
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -192,10 +192,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 1
-  timeAFK: 0.5
+  timeAFK: 0.1
   knockbackForce: 6
   enemyRB: {fileID: 0}
   enemyTransform: {fileID: 0}
   isMoving: 0
   tagManager: {fileID: 0}
-  decelerationRate: 0.5
+  decelerationRate: 4
