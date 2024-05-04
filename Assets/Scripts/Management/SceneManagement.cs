@@ -4,22 +4,10 @@ using UnityEngine.SceneManagement;
 public class SceneManagement : MonoBehaviour
 {
     [HideInInspector] public TagManagement tagManager;
-    public static SceneManagement instance;
 
     public virtual void Awake()
     {
         tagManager = FindObjectOfType<TagManagement>();
-
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        // else
-        // {
-        //     Debug.Log(gameObject.name);
-        //     Destroy(gameObject);
-        // }
     }
 
     public void NextLevel()
