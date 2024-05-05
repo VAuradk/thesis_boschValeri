@@ -5,6 +5,8 @@ public class ChaseEnemy : EnemyManagement
 {
     private Transform target;
     private Vector2 moveDirection;
+    [SerializeField] private float distanceThreshold;
+    private float distance;
 
     public override void Start()
     {
@@ -16,10 +18,14 @@ public class ChaseEnemy : EnemyManagement
     {
         if (target)
         {
-            Vector3 direction = (target.position - transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            enemyRB.rotation = angle;
-            moveDirection = direction;
+            distance = Vector2.Distance(transform.position, target.position);
+            Vector2 direction = target.position - transform.position;
+            direction.Normalize();
+
+            if (distance < distanceThreshold)
+            {
+                transform.position = Vector2.MoveTowards(this.transform.position, target.position, enemySpeed * Time.deltaTime);
+            }
         }
     }
 
