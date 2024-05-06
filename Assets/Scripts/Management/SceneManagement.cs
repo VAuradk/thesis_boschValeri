@@ -15,9 +15,14 @@ public class SceneManagement : MonoBehaviour
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void LoadScene(string sceneName)
+    // public void LoadScene(string sceneName)
+    // {
+    //     SceneManager.LoadSceneAsync(sceneName);
+    // }
+
+    public void PlayGame()
     {
-        SceneManager.LoadSceneAsync(sceneName);
+        SceneManager.LoadScene(1);
     }
 
     public void ExitGame()

@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 7493099213452597480}
+  gameStatistics: {fileID: 0}
 --- !u!1 &539624235793976286
 GameObject:
   m_ObjectHideFlags: 0
