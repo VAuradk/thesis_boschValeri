@@ -15,10 +15,12 @@ public class PlayerManagement : MonoBehaviour
     private InputAction pauseAction;
     private GameControl gameControl;
     private bool hasDied = false;
+    private SpriteRenderer playerSprite;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerSprite = GetComponent<SpriteRenderer>();
         tagManager = FindObjectOfType<TagManagement>();
         gameStatistics = FindObjectOfType<StatisticsManagement>();
         godMode = false;
@@ -30,6 +32,7 @@ public class PlayerManagement : MonoBehaviour
 
     public void Update()
     {
+        // provisional - replace for checkbox in game menu
         if (Input.GetKeyDown(KeyCode.G))
         {
             godMode = !godMode;
@@ -80,10 +83,12 @@ public class PlayerManagement : MonoBehaviour
         if (godMode)
         {
             tagPlayer.gameObject.tag = "playerGodMode";
+            playerSprite.color = new Color(255f, 255f, 0f);
         }
         else
         {
             tagPlayer.gameObject.tag = "playerNormalMode";
+            playerSprite.color = new Color(255f, 255f, 255f);
         }
     }
 
