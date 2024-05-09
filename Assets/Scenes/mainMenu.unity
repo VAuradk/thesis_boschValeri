@@ -245,6 +245,10 @@ PrefabInstance:
       propertyPath: m_FirstSelected
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2562802062719165491, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2952106556334321052, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.13761234

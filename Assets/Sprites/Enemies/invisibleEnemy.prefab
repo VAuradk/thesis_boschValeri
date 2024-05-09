@@ -192,8 +192,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 0.5
-  timeAFK: 0.5
+  timeAFK: 0.1
+  knockbackForce: 6
   enemyRB: {fileID: 0}
+  enemyTransform: {fileID: 0}
+  tagManager: {fileID: 0}
   isMoving: 0
-  invisibilityDuration: 1.2
+  distanceThreshold: 15
+  invisibilityDuration: 1.5
   invisibilityInterval: 3

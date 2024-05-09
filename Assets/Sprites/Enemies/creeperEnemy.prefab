@@ -177,11 +177,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 1
   timeAFK: 0
-  knockbackForce: 10
+  knockbackForce: 5
   enemyRB: {fileID: 0}
-  isMoving: 0
+  enemyTransform: {fileID: 0}
   tagManager: {fileID: 0}
+  isMoving: 0
   squarePrefab: {fileID: 4113773329837969509, guid: 826f1d84b9bd64c5caf12999e2976791, type: 3}
-  numberOfSquares: 10
+  numberOfSquares: 30
   squareLifetime: 4
   squareSpeed: 3

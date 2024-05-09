@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 2
   timeAFK: 1
-  knockbackForce: 7
+  knockbackForce: 6
   enemyRB: {fileID: 0}
   enemyTransform: {fileID: 0}
   isMoving: 0

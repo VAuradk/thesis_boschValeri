@@ -5,17 +5,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerManagement : MonoBehaviour
 {
-    Vector2 startPos;
+    [SerializeField] private float respawnTime;
     private Rigidbody2D rb;
-    [SerializeField] private float respawnTime = 0.5f;
-    private TagManagement tagManager;
-    public bool godMode;
     private Transform tagPlayer;
+    private TagManagement tagManager;
     private StatisticsManagement gameStatistics;
+    private SceneManagement sceneManagement;
     private InputAction pauseAction;
     private GameControl gameControl;
-    private bool hasDied = false;
     private SpriteRenderer playerSprite;
+    private bool hasDied = false;
+    public bool godMode;
 
     private void Awake()
     {
@@ -23,6 +23,7 @@ public class PlayerManagement : MonoBehaviour
         playerSprite = GetComponent<SpriteRenderer>();
         tagManager = FindObjectOfType<TagManagement>();
         gameStatistics = FindObjectOfType<StatisticsManagement>();
+        sceneManagement = FindAnyObjectByType<SceneManagement>();
         tagPlayer = transform;
         gameControl = FindObjectOfType<GameControl>();
         pauseAction = new InputAction(binding: "<Keyboard>/escape");
@@ -37,11 +38,6 @@ public class PlayerManagement : MonoBehaviour
             godMode = !godMode;
             GodMode();
         }
-    }
-
-    private void Start()
-    {
-        startPos = transform.position;
     }
 
     private void HandleEnemyCollision(Collider2D collider)
@@ -74,7 +70,7 @@ public class PlayerManagement : MonoBehaviour
     {
         gameStatistics.PlayerDied();
         StartCoroutine(Respawn(respawnTime));
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        sceneManagement.Restart();
     }
 
     public void GodMode()
@@ -94,13 +90,7 @@ public class PlayerManagement : MonoBehaviour
     private IEnumerator Respawn(float duration)
     {
         rb.simulated = false;
-        rb.velocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-        transform.localScale = Vector3.zero;
         yield return new WaitForSeconds(duration);
-        transform.position = startPos;
-        transform.eulerAngles = Vector3.zero;
-        transform.localScale = new Vector3((float)0.5, (float)0.5, (float)0.5);
         rb.simulated = true;
     }
 

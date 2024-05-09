@@ -58,19 +58,4 @@ public class TagManagement : MonoBehaviour
             return false;
         }
     }
-
-    // public Transform GetTransformWithTag(string tag)
-    // {
-    //     GameObject taggedObject = GameObject.FindGameObjectWithTag(tag);
-
-    //     if (taggedObject != null)
-    //     {
-    //         return taggedObject.transform;
-    //     }
-    //     else
-    //     {
-    //         Debug.LogWarning($"Object with tag '{tag}' not found.");
-    //         return null;
-    //     }
-    // }
 }

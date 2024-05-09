@@ -5,13 +5,12 @@ public class EnemyManagement : MonoBehaviour
 {
     public float enemySpeed;
     public float timeAFK;
-    [SerializeField] private float knockbackForce = 5f;
+    public float knockbackForce;
+    private Vector2 lastBulletDirection;
     [HideInInspector] public Rigidbody2D enemyRB;
     [HideInInspector] public Transform enemyTransform;
-    [HideInInspector] public bool isMoving;
     [HideInInspector] public TagManagement tagManager;
-
-    private Vector2 lastBulletDirection;
+    [HideInInspector] public bool isMoving;
 
     public virtual void Awake()
     {
