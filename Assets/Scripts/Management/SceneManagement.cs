@@ -15,10 +15,10 @@ public class SceneManagement : MonoBehaviour
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    // public void LoadScene(string sceneName)
-    // {
-    //     SceneManager.LoadSceneAsync(sceneName);
-    // }
+    public void LoadSpecificScene(string sceneName)
+    {
+        SceneManager.LoadSceneAsync(sceneName);
+    }
 
     public void PlayGame()
     {
@@ -28,5 +28,10 @@ public class SceneManagement : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -9,7 +9,7 @@ public class PlayerManagement : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private float respawnTime = 0.5f;
     private TagManagement tagManager;
-    [SerializeField] private bool godMode;
+    public bool godMode;
     private Transform tagPlayer;
     private StatisticsManagement gameStatistics;
     private InputAction pauseAction;
@@ -23,7 +23,6 @@ public class PlayerManagement : MonoBehaviour
         playerSprite = GetComponent<SpriteRenderer>();
         tagManager = FindObjectOfType<TagManagement>();
         gameStatistics = FindObjectOfType<StatisticsManagement>();
-        godMode = false;
         tagPlayer = transform;
         gameControl = FindObjectOfType<GameControl>();
         pauseAction = new InputAction(binding: "<Keyboard>/escape");

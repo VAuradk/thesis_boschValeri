@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour
 {
@@ -8,29 +7,20 @@ public class GameControl : MonoBehaviour
     public GameObject pauseMenu;
     private bool isGamePaused = false;
     public StatisticsManagement gameStatistics;
+    public SceneManagement sceneManagement;
 
-    public void Awake()
+    private void Awake()
     {
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Debug.Log(gameObject.name);
-            Destroy(gameObject);
-        }
-    }
-
-    private void Start()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("playerNormalMode");
+        // else
+        // {
+        //     Debug.Log(gameObject.name);
+        //     Destroy(gameObject);
+        // }
     }
 
     public void OnMenu(InputAction.CallbackContext context)
@@ -51,16 +41,9 @@ public class GameControl : MonoBehaviour
             pauseMenu.SetActive(isGamePaused);
         }
     }
-
     public void Home()
     {
-        // GameObject eventSystem = GameObject.Find("EventSystem");
-        // if (eventSystem != null)
-        // {
-        //     eventSystem.SetActive(false);
-        // }
-
-        SceneManager.LoadScene("mainMenu");
+        sceneManagement.LoadSpecificScene("mainMenu");
         TogglePause();
         gameStatistics.ResetGame();
     }
@@ -73,6 +56,6 @@ public class GameControl : MonoBehaviour
     public void Restart()
     {
         TogglePause();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        sceneManagement.Restart();
     }
 }
