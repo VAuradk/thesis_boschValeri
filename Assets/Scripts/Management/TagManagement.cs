@@ -1,5 +1,6 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using System.Collections.Generic;
 
 public class TagManagement : MonoBehaviour
 {
@@ -12,10 +13,12 @@ public class TagManagement : MonoBehaviour
 
     private void InitializeCategories()
     {
-        string[] allTags = UnityEditorInternal.InternalEditorUtility.tags;
+        SerializedObject tagManager = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/TagManager.asset")[0]);
+        SerializedProperty tagsProperty = tagManager.FindProperty("tags");
 
-        foreach (string tag in allTags)
+        for (int i = 0; i < tagsProperty.arraySize; i++)
         {
+            string tag = tagsProperty.GetArrayElementAtIndex(i).stringValue;
             string category = GetCategoryForTag(tag);
 
             if (!tagCategories.ContainsKey(category))

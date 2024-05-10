@@ -83,7 +83,7 @@ public class PlayerManagement : MonoBehaviour
         else
         {
             tagPlayer.gameObject.tag = "playerNormalMode";
-            playerSprite.color = new Color(255f, 255f, 255f);
+            playerSprite.color = new Color(176f, 0f, 148f);
         }
     }
 

@@ -12,7 +12,15 @@ public class SceneManagement : MonoBehaviour
 
     public void NextLevel()
     {
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadSceneAsync(nextSceneIndex);
+        }
+        else
+        {
+            LoadSpecificScene("mainMenu");
+        }
     }
 
     public void LoadSpecificScene(string sceneName)
