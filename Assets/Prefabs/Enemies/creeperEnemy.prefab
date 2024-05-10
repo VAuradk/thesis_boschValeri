@@ -175,9 +175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457b12c299100434b96133b2dbf1168e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 1
+  enemySpeed: 0
   timeAFK: 0
-  knockbackForce: 5
+  knockbackForce: 0
   enemyRB: {fileID: 0}
   enemyTransform: {fileID: 0}
   tagManager: {fileID: 0}
