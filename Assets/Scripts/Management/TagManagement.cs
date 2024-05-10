@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEditor;
 using System.Collections.Generic;
 
 public class TagManagement : MonoBehaviour
@@ -13,39 +12,9 @@ public class TagManagement : MonoBehaviour
 
     private void InitializeCategories()
     {
-        SerializedObject tagManager = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/TagManager.asset")[0]);
-        SerializedProperty tagsProperty = tagManager.FindProperty("tags");
-
-        for (int i = 0; i < tagsProperty.arraySize; i++)
-        {
-            string tag = tagsProperty.GetArrayElementAtIndex(i).stringValue;
-            string category = GetCategoryForTag(tag);
-
-            if (!tagCategories.ContainsKey(category))
-            {
-                tagCategories.Add(category, new List<string>());
-            }
-            tagCategories[category].Add(tag);
-        }
-    }
-
-    private string GetCategoryForTag(string tag)
-    {
-        if (tag.StartsWith("enemy"))
-        {
-            return "Enemies";
-        }
-
-        if (tag.StartsWith("collision"))
-        {
-            return "Collisions";
-        }
-
-        if (tag.StartsWith("player"))
-        {
-            return "PlayerMode";
-        }
-        return "Other";
+        tagCategories.Add("Enemies", new List<string> { "enemyBasic", "enemyChase", "enemyCreeoer", "enemyInvisible", "enemyRandom" });
+        tagCategories.Add("Collisions", new List<string> { "collisionWall", "collisionTrap" });
+        tagCategories.Add("PlayerMode", new List<string> { "playerNormalMode", "playerGodMode" });
     }
 
     public bool IsInTagCategory(string tag, string category)
