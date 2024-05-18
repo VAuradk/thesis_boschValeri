@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 809cb13da6bad4f1ba7042b775e9e12a
+guid: 50d0016f451424fcb82c3f9b490c22ae
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 160
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: orangeWall_0
+      name: orangeWall-export_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 16
-        height: 16
+        y: 320
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bf4586a0ebff432b829be844ca0eae5
-      internalID: -1116716092
+      spriteID: 2e6d3ca7fde584ba493f7a6588fb122f
+      internalID: 861309177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orangeWall_1
+      name: orangeWall-export_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
+        x: 160
+        y: 320
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a23e46b7efa0495d8dd86061a0b6eda
-      internalID: -698318587
+      spriteID: d33a873e410814eb086b183b3f08c7bc
+      internalID: -1226184602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orangeWall_2
+      name: orangeWall-export_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
+        x: 320
+        y: 320
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8507b56371d94d419d55d1ea71a92b9
-      internalID: 1331579846
+      spriteID: f89da52e2892a4cc28c0925db69e6f6c
+      internalID: -1262598936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orangeWall_3
+      name: orangeWall-export_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 16
-        height: 16
+        y: 160
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af62754b214b44909a89632f1a15276b
-      internalID: 2069008596
+      spriteID: b7d747948761c43dfbfbbaa4ad5270ed
+      internalID: 1921857550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orangeWall_4
+      name: orangeWall-export_4
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
+        x: 160
+        y: 160
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c698008e563c14796ac42f13201a7bc1
-      internalID: -1387533435
+      spriteID: 1c71e25a94b534ca6979f3a89677e8aa
+      internalID: -237394861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orangeWall_5
+      name: orangeWall-export_5
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
+        x: 320
+        y: 160
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f16d52d744c6e4615ae3ddfeb467dc1e
-      internalID: 1011640509
+      spriteID: 728b95b35204a469b9ce46f1f841f0ec
+      internalID: -1809882698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orangeWall_6
+      name: orangeWall-export_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,20 +250,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6342cdd2c858d46abbe56149257da044
-      internalID: 689178543
+      spriteID: 66237bc3c3e7f4d93a55f924e2a84453
+      internalID: -1848367333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orangeWall_7
+      name: orangeWall-export_7
       rect:
         serializedVersion: 2
-        x: 16
+        x: 160
         y: 0
-        width: 16
-        height: 16
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,20 +271,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc480bd4c634e4a1aac04a62a6aa5d0e
-      internalID: -2066910856
+      spriteID: 5c3b29db5b86a4f22b36304f73ac3b1f
+      internalID: 1748063017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orangeWall_8
+      name: orangeWall-export_8
       rect:
         serializedVersion: 2
-        x: 32
+        x: 320
         y: 0
-        width: 16
-        height: 16
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,8 +292,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d683147b3709f472e9edf8b62ad3fe2a
-      internalID: 1671349022
+      spriteID: fc159cb4fcabd4b99b3c5cb490604a06
+      internalID: -1809556440
       vertices: []
       indices: 
       edges: []
@@ -309,15 +309,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      orangeWall_0: -1116716092
-      orangeWall_1: -698318587
-      orangeWall_2: 1331579846
-      orangeWall_3: 2069008596
-      orangeWall_4: -1387533435
-      orangeWall_5: 1011640509
-      orangeWall_6: 689178543
-      orangeWall_7: -2066910856
-      orangeWall_8: 1671349022
+      orangeWall-export_0: 861309177
+      orangeWall-export_1: -1226184602
+      orangeWall-export_2: -1262598936
+      orangeWall-export_3: 1921857550
+      orangeWall-export_4: -237394861
+      orangeWall-export_5: -1809882698
+      orangeWall-export_6: -1848367333
+      orangeWall-export_7: 1748063017
+      orangeWall-export_8: -1809556440
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
