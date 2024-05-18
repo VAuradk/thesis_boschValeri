@@ -30,6 +30,11 @@ public class PlayerManagement : MonoBehaviour
         pauseAction.performed += context => gameControl.OnMenu(context);
     }
 
+    private void Start()
+    {
+        rb.freezeRotation = true;
+    }
+
     public void Update()
     {
         // provisional - replace for checkbox in game menu
