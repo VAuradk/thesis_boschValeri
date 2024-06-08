@@ -1,10 +1,10 @@
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     [SerializeField] float speed = 30f;
-    [SerializeField] int life = 3;
+    [SerializeField] float life = 3f;
     private Rigidbody2D rb;
     public Vector2 direction;
     private TagManagement tagManager;
@@ -19,20 +19,19 @@ public class Bullet : MonoBehaviour
         this.direction = direction;
         rb.velocity = this.direction * speed;
         tagManager = FindObjectOfType<TagManagement>();
+        StartCoroutine(LifeTime());
+    }
+
+    private IEnumerator LifeTime()
+    {
+        yield return new WaitForSeconds(life);
+        Destroy(gameObject);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (tagManager.IsInTagCategory(collision.gameObject.tag, "Collisions"))
         {
-            life--;
-
-            if (life < 0)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
             var firstContact = collision.contacts[0];
             Vector2 newVelocity = Vector2.Reflect(direction.normalized, firstContact.normal);
             Shoot(newVelocity.normalized);

@@ -456,12 +456,12 @@
     "m_DismissedVersion": 0,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
+    "hlslDeclarationOverride": 2,
     "m_Hidden": false,
     "m_Value": {
-        "r": 0.7764706611633301,
-        "g": 1.215686321258545,
-        "b": 1.992156982421875,
+        "r": 1.1677628755569459,
+        "g": 1.8283154964447022,
+        "b": 2.9960782527923586,
         "a": 1.0
     },
     "isMainColor": false,
