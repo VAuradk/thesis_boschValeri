@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7001181655068529676}
   - component: {fileID: 134437657726535612}
   - component: {fileID: 5781072242646466475}
-  - component: {fileID: 7709697464511374616}
   m_Layer: 0
   m_Name: gameManager
   m_TagString: DoNotDestroy
@@ -77,21 +76,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 3751774152451008150}
   deathCounterText: {fileID: 1129478225573905222}
---- !u!114 &7709697464511374616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299513165204410582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e15a1fd2bb6bde4fb4d54abe2afb05d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 7493099213452597480}
-  gameStatistics: {fileID: 0}
-  sceneManagement: {fileID: 0}
 --- !u!1 &539624235793976286
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +331,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7709697464511374616}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: Restart
         m_Mode: 1
@@ -480,7 +464,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7709697464511374616}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: Home
         m_Mode: 1
@@ -613,7 +597,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7709697464511374616}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1

@@ -12,7 +12,7 @@ public class PlayerManagement : MonoBehaviour
     private StatisticsManagement gameStatistics;
     private SceneManagement sceneManagement;
     private InputAction pauseAction;
-    private GameControl gameControl;
+    private LayoutManagement layoutManagement;
     private SpriteRenderer playerSprite;
     private bool hasDied = false;
     public bool godMode;
@@ -25,9 +25,9 @@ public class PlayerManagement : MonoBehaviour
         gameStatistics = FindObjectOfType<StatisticsManagement>();
         sceneManagement = FindAnyObjectByType<SceneManagement>();
         tagPlayer = transform;
-        gameControl = FindObjectOfType<GameControl>();
+        layoutManagement = FindObjectOfType<LayoutManagement>();
         pauseAction = new InputAction(binding: "<Keyboard>/escape");
-        pauseAction.performed += context => gameControl.OnMenu(context);
+        pauseAction.performed += context => layoutManagement.OnMenu(context);
     }
 
     private void Start()

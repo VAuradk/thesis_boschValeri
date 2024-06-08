@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GameControl : MonoBehaviour
+public class LayoutManagement : MonoBehaviour
 {
-    public static GameControl instance;
+    public static LayoutManagement instance;
     public GameObject pauseMenu;
     private bool isGamePaused = false;
     public StatisticsManagement gameStatistics;
@@ -41,6 +41,7 @@ public class GameControl : MonoBehaviour
             pauseMenu.SetActive(isGamePaused);
         }
     }
+
     public void Home()
     {
         sceneManagement.LoadSpecificScene("mainMenu");
