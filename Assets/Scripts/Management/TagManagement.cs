@@ -12,7 +12,7 @@ public class TagManagement : MonoBehaviour
 
     private void InitializeCategories()
     {
-        tagCategories.Add("Enemies", new List<string> { "enemyBasic", "enemyChase", "enemyCreeoer", "enemyInvisible", "enemyRandom" });
+        tagCategories.Add("Enemies", new List<string> { "enemyBasic", "enemyChase", "enemyCreeper", "enemyInvisible", "enemyRandom", "enemyFire" });
         tagCategories.Add("Collisions", new List<string> { "collisionWall", "collisionTrap" });
         tagCategories.Add("PlayerMode", new List<string> { "playerNormalMode", "playerGodMode" });
     }
