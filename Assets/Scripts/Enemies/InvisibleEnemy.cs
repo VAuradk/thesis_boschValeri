@@ -7,13 +7,15 @@ public class InvisibleEnemy : ChaseEnemy
     [SerializeField] private float invisibilityInterval = 5f;
 
     private SpriteRenderer spriteRenderer;
-    private bool isVisible = true;
+    private Material material;
+    private float fade = 1f;
     private Coroutine visibilityCoroutine;
 
     public override void Awake()
     {
         base.Awake();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        material = spriteRenderer.material; // Assuming the material is attached to the sprite renderer
     }
 
     public override void Start()
@@ -28,18 +30,31 @@ public class InvisibleEnemy : ChaseEnemy
 
         while (true)
         {
-            isVisible = !isVisible;
-            EnableRender();
+            // Fade out
+            yield return StartCoroutine(FadeTo(0f, 1f));
+            yield return new WaitForSeconds(invisibilityDuration);
 
-            if (isVisible)
-            {
-                yield return new WaitForSeconds(invisibilityDuration);
-            }
-            else
-            {
-                yield return new WaitForSeconds(invisibilityInterval - invisibilityDuration);
-            }
+            // Fade in
+            yield return StartCoroutine(FadeTo(1f, 1f));
+            yield return new WaitForSeconds(invisibilityInterval - invisibilityDuration);
         }
+    }
+
+    private IEnumerator FadeTo(float targetAlpha, float fadeTime)
+    {
+        float startAlpha = fade;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeTime)
+        {
+            elapsedTime += Time.deltaTime;
+            fade = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / fadeTime);
+            material.SetFloat("_Fade", fade); // Assumes the shader uses a property named "_Fade" to control transparency
+            yield return null;
+        }
+
+        fade = targetAlpha;
+        material.SetFloat("_Fade", fade);
     }
 
     public override void OnCollisionEnter2D(Collision2D collision)
@@ -47,23 +62,26 @@ public class InvisibleEnemy : ChaseEnemy
         base.OnCollisionEnter2D(collision);
         if (tagManager.IsInTagCategory(collision.gameObject.tag, "PlayerMode"))
         {
-            spriteRenderer.enabled = true;
-            if (visibilityCoroutine != null)
-            {
-                StopCoroutine(visibilityCoroutine);
-            }
+            ResetVisibilityCoroutine();
+            fade = 1f;
+            material.SetFloat("_Fade", fade);
             visibilityCoroutine = StartCoroutine(ToggleVisibility());
         }
 
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            isVisible = true;
-            EnableRender();
+            ResetVisibilityCoroutine();
+            StartCoroutine(FadeTo(1f, 0.1f)); // Quickly set to visible
+            visibilityCoroutine = StartCoroutine(ToggleVisibility());
         }
     }
 
-    private void EnableRender()
+    private void ResetVisibilityCoroutine()
     {
-        spriteRenderer.enabled = isVisible;
+        if (visibilityCoroutine != null)
+        {
+            StopCoroutine(visibilityCoroutine);
+            visibilityCoroutine = null;
+        }
     }
 }
