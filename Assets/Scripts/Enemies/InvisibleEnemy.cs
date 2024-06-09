@@ -15,7 +15,7 @@ public class InvisibleEnemy : ChaseEnemy
     {
         base.Awake();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        material = spriteRenderer.material; // Assuming the material is attached to the sprite renderer
+        material = spriteRenderer.material;
     }
 
     public override void Start()
@@ -49,7 +49,7 @@ public class InvisibleEnemy : ChaseEnemy
         {
             elapsedTime += Time.deltaTime;
             fade = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / fadeTime);
-            material.SetFloat("_Fade", fade); // Assumes the shader uses a property named "_Fade" to control transparency
+            material.SetFloat("_Fade", fade);
             yield return null;
         }
 
@@ -71,7 +71,7 @@ public class InvisibleEnemy : ChaseEnemy
         if (collision.gameObject.CompareTag("Bullet"))
         {
             ResetVisibilityCoroutine();
-            StartCoroutine(FadeTo(1f, 0.1f)); // Quickly set to visible
+            StartCoroutine(FadeTo(1f, 0.1f));
             visibilityCoroutine = StartCoroutine(ToggleVisibility());
         }
     }

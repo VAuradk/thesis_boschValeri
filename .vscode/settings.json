@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "thesis.sln"
+    "dotnet.defaultSolution": "thesis_boschValeri.sln"
 }
