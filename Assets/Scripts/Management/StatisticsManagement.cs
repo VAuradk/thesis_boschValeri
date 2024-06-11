@@ -7,9 +7,10 @@ public class StatisticsManagement : MonoBehaviour
     public TMP_Text timerText;
     public TMP_Text deathCounterText;
 
-    private float startTime;
+    public float startTime;
+    public string timerString;
     private bool isRunning;
-    private int numberOfDeaths;
+    public int numberOfDeaths;
 
     private void OnEnable()
     {
@@ -72,7 +73,7 @@ public class StatisticsManagement : MonoBehaviour
     {
         int minutes = Mathf.FloorToInt(elapsedTime / 60f);
         int seconds = Mathf.FloorToInt(elapsedTime % 60f);
-        string timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
         timerText.text = "Time: " + timerString;
     }
 
