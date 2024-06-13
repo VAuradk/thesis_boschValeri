@@ -29,7 +29,7 @@ public class StatisticsManagement : MonoBehaviour
             StartTimer();
         }
 
-        if (scene.buildIndex == 0)
+        if (scene.buildIndex == 0 || scene.name == "endScreen")
         {
             timerText.enabled = false;
             deathCounterText.enabled = false;

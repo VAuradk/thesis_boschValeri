@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class SceneManagement : MonoBehaviour
 {
     [HideInInspector] public TagManagement tagManager;
+    public GameObject endScreenOnly;
 
     public virtual void Awake()
     {
@@ -21,6 +22,19 @@ public class SceneManagement : MonoBehaviour
         else
         {
             LoadSpecificScene("mainMenu");
+        }
+    }
+
+    private void OnSceneLoaded(Scene scene)
+    {
+        if (scene.name == "endScreen")
+        {
+
+            endScreenOnly.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("hello");
         }
     }
 
