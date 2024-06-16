@@ -7,6 +7,7 @@ public class ChaseEnemy : EnemyManagement
     private Vector2 moveDirection;
     [SerializeField] private float distanceThreshold;
     private float distance;
+    private bool isMovingTowardsTarget = false;
 
     public override void Start()
     {
@@ -24,6 +25,11 @@ public class ChaseEnemy : EnemyManagement
 
             if (distance < distanceThreshold)
             {
+                isMovingTowardsTarget = true;
+            }
+
+            if (isMovingTowardsTarget)
+            {
                 transform.position = Vector2.MoveTowards(this.transform.position, target.position, enemySpeed * Time.deltaTime);
             }
         }
@@ -38,5 +44,10 @@ public class ChaseEnemy : EnemyManagement
                 enemyRB.velocity = new Vector2(moveDirection.x, moveDirection.y) * enemySpeed;
             }
         }
+    }
+
+    public override void OnCollisionStay2D(Collision2D collision)
+    {
+        // Avoid father behavior that creates unwanted outcomes
     }
 }

@@ -22,6 +22,7 @@ TagManager:
   - enemyFire
   - playerNormalMode
   - playerGodMode
+  - collisionBreakableWall
   layers:
   - Default
   - TransparentFX

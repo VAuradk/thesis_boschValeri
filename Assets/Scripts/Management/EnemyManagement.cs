@@ -53,7 +53,7 @@ public class EnemyManagement : MonoBehaviour
         isMoving = true;
     }
 
-    public void OnCollisionStay2D(Collision2D collision)
+    public virtual void OnCollisionStay2D(Collision2D collision)
     {
         if (isMoving && tagManager.IsInTagCategory(collision.gameObject.tag, "Collisions"))
         {
