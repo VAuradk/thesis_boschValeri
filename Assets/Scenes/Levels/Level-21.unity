@@ -7548,6 +7548,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2782946316968466054, guid: 4c9e64182bd87d84abd40ec2dc1401e2, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782946316968466054, guid: 4c9e64182bd87d84abd40ec2dc1401e2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782946316968466054, guid: 4c9e64182bd87d84abd40ec2dc1401e2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782946316968466054, guid: 4c9e64182bd87d84abd40ec2dc1401e2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aeb78182236137c41a19e4a6c1b67c97, type: 2}
+    - target: {fileID: 6125442728464625251, guid: 4c9e64182bd87d84abd40ec2dc1401e2, type: 3}
+      propertyPath: greenEnemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125442728464625251, guid: 4c9e64182bd87d84abd40ec2dc1401e2, type: 3}
+      propertyPath: orangeEnemy
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6538737207764267354, guid: 4c9e64182bd87d84abd40ec2dc1401e2, type: 3}
       propertyPath: m_Name
       value: socket
