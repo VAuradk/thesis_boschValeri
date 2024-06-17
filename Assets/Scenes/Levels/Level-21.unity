@@ -6900,17 +6900,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser
       objectReference: {fileID: 0}
-    - target: {fileID: 1664711714764120178, guid: caa466755f72de04f89e84191b10c411, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4377767150053847704, guid: caa466755f72de04f89e84191b10c411, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5126135048172109951, guid: caa466755f72de04f89e84191b10c411, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.983
+      value: -0.981
       objectReference: {fileID: 0}
     - target: {fileID: 5126135048172109951, guid: caa466755f72de04f89e84191b10c411, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6952,18 +6944,6 @@ PrefabInstance:
       propertyPath: socket
       value: 
       objectReference: {fileID: 1349578975}
-    - target: {fileID: 9103358978598682250, guid: caa466755f72de04f89e84191b10c411, type: 3}
-      propertyPath: color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9103358978598682250, guid: caa466755f72de04f89e84191b10c411, type: 3}
-      propertyPath: color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9103358978598682250, guid: caa466755f72de04f89e84191b10c411, type: 3}
-      propertyPath: color.r
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7398813223691794598}
   - component: {fileID: 7539059184764838261}
   - component: {fileID: 18862932663915162}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LaserStartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4840,9 +4840,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5126135048172109951}
   - component: {fileID: 9103358978598682250}
-  m_Layer: 0
+  - component: {fileID: 6601289413305045159}
+  m_Layer: 9
   m_Name: Laser 1
-  m_TagString: Untagged
+  m_TagString: collisionTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4878,13 +4879,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   socket: {fileID: 0}
-  color: {r: 0, g: 0.25335073, b: 1, a: 1}
+  color: {r: 0, g: 1, b: 0.55813956, a: 1}
+  endColor: {r: 0.6685395, g: 0, b: 1, a: 1}
   colorIntensity: 10
+  beamColorEnhance: 1
   maxLength: 100
   thickness: 30
   noiseScale: 6
   startVFX: {fileID: 8023862096873545176}
   endVFX: {fileID: 4425970181574103645}
+  ingoreThis:
+    serializedVersion: 2
+    m_Bits: 512
+  duration: 2
+--- !u!61 &6601289413305045159
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664711714764120178}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.3022488, y: -0.002490878}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.6044977, y: 0.479123}
+  m_EdgeRadius: 0
 --- !u!1 &2909773881894002141
 GameObject:
   m_ObjectHideFlags: 0
@@ -4896,7 +4948,7 @@ GameObject:
   - component: {fileID: 6288988132211601170}
   - component: {fileID: 7342158370272956919}
   - component: {fileID: 5236191464559013980}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5172,7 +5224,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.5
+      scalar: 1
       minScalar: 0.5
       maxCurve:
         serializedVersion: 2
@@ -9725,7 +9777,7 @@ GameObject:
   m_Component:
   - component: {fileID: 240269543658667502}
   - component: {fileID: 4270821085433259364}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9860,7 +9912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3929019931387482707}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9895,7 +9947,7 @@ GameObject:
   - component: {fileID: 2672988651093320841}
   - component: {fileID: 2416266260970239696}
   - component: {fileID: 2374491385824870126}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10171,7 +10223,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.5
+      scalar: 1
       minScalar: 0.5
       maxCurve:
         serializedVersion: 2
@@ -14725,7 +14777,7 @@ GameObject:
   - component: {fileID: 7582974477275373858}
   - component: {fileID: 3007130183747770603}
   - component: {fileID: 3713490849629215778}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LaserEndPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19553,7 +19605,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 648856535068189589}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}

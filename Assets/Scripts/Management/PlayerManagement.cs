@@ -71,7 +71,7 @@ public class PlayerManagement : MonoBehaviour
         HandleEnemyCollision(collider);
     }
 
-    private void Die()
+    public void Die()
     {
         gameStatistics.PlayerDied();
         StartCoroutine(Respawn(respawnTime));
