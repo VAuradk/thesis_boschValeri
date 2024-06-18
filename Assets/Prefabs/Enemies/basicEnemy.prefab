@@ -281,4 +281,5 @@ MonoBehaviour:
   enemyTransform: {fileID: 0}
   tagManager: {fileID: 0}
   isMoving: 0
+  knockbackPropagationRadius: 0.3
   decelerationRate: 6

@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class EnemyManagement : MonoBehaviour
 {
@@ -11,6 +11,10 @@ public class EnemyManagement : MonoBehaviour
     [HideInInspector] public Transform enemyTransform;
     [HideInInspector] public TagManagement tagManager;
     [HideInInspector] public bool isMoving;
+
+    [SerializeField] private float knockbackPropagationRadius = 2;// Size of the box for knockback propagation
+
+    private bool hasReceivedBulletHit = false; // Flag to track if this enemy has already received a bullet hit
 
     public virtual void Awake()
     {
@@ -28,7 +32,7 @@ public class EnemyManagement : MonoBehaviour
 
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet") && !hasReceivedBulletHit)
         {
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
 
@@ -37,6 +41,9 @@ public class EnemyManagement : MonoBehaviour
                 lastBulletDirection = bullet.direction.normalized;
                 ApplyKnockback();
                 isMoving = false;
+                hasReceivedBulletHit = true;
+                Debug.Log($"Bullet hit {name}, applying knockback and propagating");
+                PropagateKnockback(); // Trigger propagation immediately
                 StartCoroutine(WaitTime());
             }
         }
@@ -44,6 +51,7 @@ public class EnemyManagement : MonoBehaviour
 
     private void ApplyKnockback()
     {
+        Debug.Log($"Applying knockback to {name}: {lastBulletDirection * knockbackForce}");
         enemyRB.velocity = lastBulletDirection * knockbackForce;
     }
 
@@ -51,6 +59,7 @@ public class EnemyManagement : MonoBehaviour
     {
         yield return new WaitForSeconds(timeAFK);
         isMoving = true;
+        hasReceivedBulletHit = false; // Reset the flag after waiting time
     }
 
     public virtual void OnCollisionStay2D(Collision2D collision)
@@ -64,4 +73,43 @@ public class EnemyManagement : MonoBehaviour
             StartCoroutine(WaitTime());
         }
     }
+
+    private void PropagateKnockback()
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, knockbackPropagationRadius, 1); // Adjust radius as needed
+        Debug.Log($"PropagateKnockback called. Found {hitColliders.Length} colliders.");
+        foreach (var hitCollider in hitColliders)
+        {
+
+            if (tagManager.IsInTagCategory(hitCollider.gameObject.tag, "Enemies"))
+            {
+                EnemyManagement otherEnemy = hitCollider.GetComponent<EnemyManagement>();
+                if (otherEnemy != null && otherEnemy != this && otherEnemy.isMoving && !otherEnemy.hasReceivedBulletHit)
+                {
+                    Debug.Log($"Propagating knockback to: {otherEnemy.name}");
+                    otherEnemy.ApplyKnockback();
+                    otherEnemy.isMoving = false;
+                    otherEnemy.hasReceivedBulletHit = true;
+                    StartCoroutine(otherEnemy.WaitTime());
+                    // Trigger propagation recursively for each enemy in range
+                    otherEnemy.PropagateKnockback();
+                }
+            }
+
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, knockbackPropagationRadius);
+    }
 }
+
+
+
+
+
+// tagManager.IsInTagCategory(collision.gameObject.tag, "Enemies")
+
+//tagManager.IsInTagCategory(hitCollider.gameObject.tag, "Enemies")

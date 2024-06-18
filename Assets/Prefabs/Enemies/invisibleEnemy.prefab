@@ -199,6 +199,7 @@ MonoBehaviour:
   enemyTransform: {fileID: 0}
   tagManager: {fileID: 0}
   isMoving: 0
+  knockbackPropagationRadius: 0.3
   target: {fileID: 0}
   distanceThreshold: 15
   invisibilityDuration: 1.5

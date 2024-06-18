@@ -199,6 +199,7 @@ MonoBehaviour:
   enemyTransform: {fileID: 0}
   tagManager: {fileID: 0}
   isMoving: 0
+  knockbackPropagationRadius: 0.3
   changeDirectionInterval: 0.5
 --- !u!1 &5159623619745042213
 GameObject:
