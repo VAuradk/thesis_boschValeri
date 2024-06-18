@@ -52,7 +52,7 @@ Material:
     m_Floats:
     - _SocketScale: 2.5
     - _SocketSpeed: 0.5
-    - _SocketStrength: 10
+    - _SocketStrength: 99
     m_Colors:
-    - _Color: {r: 304.60046, g: 20.731968, b: 0, a: 0}
+    - _Color: {r: 629.1806, g: 115.77904, b: 0, a: 0}
   m_BuildTextureStacks: []

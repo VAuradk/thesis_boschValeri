@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ChaseEnemy : EnemyManagement
 {
-    private Transform target;
+    [HideInInspector] public Transform target;
     private Vector2 moveDirection;
     [SerializeField] private float distanceThreshold;
     private float distance;

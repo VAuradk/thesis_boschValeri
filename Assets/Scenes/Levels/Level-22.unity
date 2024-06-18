@@ -6690,6 +6690,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caa466755f72de04f89e84191b10c411, type: 3}
+--- !u!1001 &1649033758
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 771533890559871079, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
+      propertyPath: m_Name
+      value: chaseEnemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 771533890559871079, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670667569012496774, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670667569012496774, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670667569012496774, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670667569012496774, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670667569012496774, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670667569012496774, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670667569012496774, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670667569012496774, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670667569012496774, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670667569012496774, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
 --- !u!1 &1654607102
 GameObject:
   m_ObjectHideFlags: 0
@@ -7005,13 +7066,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: chaseEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 771533890559871079, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4670667569012496774, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.4
       objectReference: {fileID: 0}
     - target: {fileID: 4670667569012496774, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.05
+      value: -3.12
       objectReference: {fileID: 0}
     - target: {fileID: 4670667569012496774, guid: 9e553959c40214fc2bc1fb0a13bd7f26, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7360,7 +7425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2425738855477881191, guid: 4c9e64182bd87d84abd40ec2dc1401e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.35
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 2425738855477881191, guid: 4c9e64182bd87d84abd40ec2dc1401e2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7399,6 +7464,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 841e96afa8344804fa4296d556f83769, type: 2}
     - target: {fileID: 6125442728464625251, guid: 4c9e64182bd87d84abd40ec2dc1401e2, type: 3}
+      propertyPath: blueEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125442728464625251, guid: 4c9e64182bd87d84abd40ec2dc1401e2, type: 3}
       propertyPath: yellowEnemy
       value: 1
       objectReference: {fileID: 0}
@@ -7426,6 +7495,7 @@ SceneRoots:
   - {fileID: 6489216266238647190}
   - {fileID: 180847015}
   - {fileID: 1884420146}
+  - {fileID: 1649033758}
   - {fileID: 1312359665}
   - {fileID: 1889022618}
   - {fileID: 1589213064}

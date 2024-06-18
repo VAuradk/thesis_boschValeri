@@ -33,6 +33,19 @@ public class Socket : MonoBehaviour
                 if (Vector2.Distance(socketPosition, obj.transform.position) < threshold)
                 {
                     isEmpty = false;
+
+                    if (blueEnemy || yellowEnemy)
+                    {
+                        ChaseEnemy chaseEnemy = obj.GetComponent<ChaseEnemy>();
+                        chaseEnemy.target = null;
+
+                        if (blueEnemy)
+                        {
+                            InvisibleEnemy invisibleEnemy = obj.GetComponent<InvisibleEnemy>();
+                            invisibleEnemy.invisibilityInterval = 9999f;
+                        }
+                    }
+
                     Rigidbody2D enemyRigidbody = obj.GetComponent<Rigidbody2D>();
                     enemyRigidbody.simulated = false;
                     obj.transform.position = socketPosition;

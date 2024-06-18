@@ -1,21 +1,24 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class InvisibleEnemy : ChaseEnemy
 {
-    [SerializeField] private float invisibilityDuration = 2f;
-    [SerializeField] private float invisibilityInterval = 5f;
+    [SerializeField] public float invisibilityDuration = 2f;
+    [SerializeField] public float invisibilityInterval = 5f;
 
     private SpriteRenderer spriteRenderer;
     private Material material;
     private float fade = 1f;
     private Coroutine visibilityCoroutine;
+    private Light2D light2D;
 
     public override void Awake()
     {
         base.Awake();
         spriteRenderer = GetComponent<SpriteRenderer>();
         material = spriteRenderer.material;
+        light2D = GetComponentInChildren<Light2D>();
     }
 
     public override void Start()
@@ -31,11 +34,15 @@ public class InvisibleEnemy : ChaseEnemy
         while (true)
         {
             // Fade out
+            light2D.enabled = false;
             yield return StartCoroutine(FadeTo(0f, 1f));
+
             yield return new WaitForSeconds(invisibilityDuration);
 
             // Fade in
+
             yield return StartCoroutine(FadeTo(1f, 1f));
+            light2D.enabled = true;
             yield return new WaitForSeconds(invisibilityInterval - invisibilityDuration);
         }
     }
