@@ -3,38 +3,71 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour
 {
-    [HideInInspector] public TagManagement tagManager;
     public GameObject endScreenOnly;
+    private StatisticsManagement statisticsManagement;
+    private LayoutManagement layoutManagement;
 
-    public virtual void Awake()
+    private void Awake()
     {
-        tagManager = FindObjectOfType<TagManagement>();
+        statisticsManagement = FindObjectOfType<StatisticsManagement>();
+        layoutManagement = FindObjectOfType<LayoutManagement>();
     }
 
-    public void NextLevel()
+    public void NextScene()
     {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        // int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-        {
-            SceneManager.LoadSceneAsync(nextSceneIndex);
-        }
-        else
-        {
-            LoadSpecificScene("mainMenu");
-        }
+        // if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        // {
+        //     SceneManager.LoadSceneAsync(nextSceneIndex);
+        // }
+        // else
+        // {
+        //     LoadSpecificScene("mainMenu");
+        // }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    private void OnSceneLoaded(Scene scene)
+    public void OnDisable()
     {
-        if (scene.name == "endScreen")
-        {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        Debug.Log("SceneManagement: Unsubscribed from sceneLoaded");
+    }
 
-            endScreenOnly.SetActive(true);
+    public void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        Debug.Log("SceneManagement: Subscribed to sceneLoaded");
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Time.timeScale = 1f;
+
+        Debug.Log($"SceneManagement: Scene loaded: {scene.name}");
+
+        if (scene.buildIndex == 1)
+        {
+            statisticsManagement.StartTimer();
         }
+
+        if (scene.name == "mainMenu")
+        {
+            statisticsManagement.DisplayFalse();
+
+            layoutManagement.EndScreenFalse();
+        }
+
+        else if (scene.name == "endScreen")
+        {
+            statisticsManagement.DisplayFalse();
+            layoutManagement.EndScreenTrue();
+        }
+
         else
         {
-            Debug.Log("hello");
+            statisticsManagement.DisplayTrue();
         }
     }
 
@@ -45,7 +78,8 @@ public class SceneManagement : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
+        NextScene();
     }
 
     public void ExitGame()
@@ -57,5 +91,4 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
 }

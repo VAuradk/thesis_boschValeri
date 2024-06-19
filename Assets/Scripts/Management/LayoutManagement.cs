@@ -5,6 +5,7 @@ public class LayoutManagement : MonoBehaviour
 {
     public static LayoutManagement instance;
     public GameObject pauseMenu;
+    public GameObject endScreenOnly;
     private bool isGamePaused = false;
     public StatisticsManagement gameStatistics;
     public SceneManagement sceneManagement;
@@ -16,11 +17,6 @@ public class LayoutManagement : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        // else
-        // {
-        //     Debug.Log(gameObject.name);
-        //     Destroy(gameObject);
-        // }
     }
 
     public void OnMenu(InputAction.CallbackContext context)
@@ -29,6 +25,16 @@ public class LayoutManagement : MonoBehaviour
         {
             TogglePause();
         }
+    }
+
+    public void EndScreenTrue()
+    {
+        endScreenOnly.SetActive(true);
+    }
+
+    public void EndScreenFalse()
+    {
+        endScreenOnly.SetActive(false);
     }
 
     private void TogglePause()
@@ -40,6 +46,12 @@ public class LayoutManagement : MonoBehaviour
         {
             pauseMenu.SetActive(isGamePaused);
         }
+    }
+
+    public void HomeSkip()
+    {
+        sceneManagement.LoadSpecificScene("mainMenu");
+        gameStatistics.ResetGame();
     }
 
     public void Home()

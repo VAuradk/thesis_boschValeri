@@ -1,4 +1,3 @@
-using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -37,7 +36,6 @@ public class PlayerManagement : MonoBehaviour
 
     public void Update()
     {
-        // provisional - replace for checkbox in game menu
         if (Input.GetKeyDown(KeyCode.G))
         {
             godMode = !godMode;

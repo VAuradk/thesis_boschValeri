@@ -1,45 +1,15 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class StatisticsManagement : MonoBehaviour
 {
     public TMP_Text timerText;
     public TMP_Text deathCounterText;
-
+    public GameObject statisticsBOX;
     public float startTime;
     public string timerString;
     private bool isRunning;
     public int numberOfDeaths;
-
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.buildIndex == 1)
-        {
-            StartTimer();
-        }
-
-        if (scene.buildIndex == 0 || scene.name == "endScreen")
-        {
-            timerText.enabled = false;
-            deathCounterText.enabled = false;
-        }
-        else
-        {
-            timerText.enabled = true;
-            deathCounterText.enabled = true;
-        }
-    }
 
     private void Update()
     {
@@ -54,13 +24,25 @@ public class StatisticsManagement : MonoBehaviour
     {
         numberOfDeaths = 0;
         UpdateDeathCounterText();
-        // isRunning = false;
+        startTime = Time.time;
+        isRunning = false;
+        UpdateTimerText(0);
     }
 
     public void PlayerDied()
     {
         numberOfDeaths++;
         UpdateDeathCounterText();
+    }
+
+    public void DisplayTrue()
+    {
+        statisticsBOX.SetActive(true);
+    }
+
+    public void DisplayFalse()
+    {
+        statisticsBOX.SetActive(false);
     }
 
     public void StartTimer()
@@ -74,11 +56,11 @@ public class StatisticsManagement : MonoBehaviour
         int minutes = Mathf.FloorToInt(elapsedTime / 60f);
         int seconds = Mathf.FloorToInt(elapsedTime % 60f);
         timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
-        timerText.text = "Time: " + timerString;
+        timerText.text = timerString;
     }
 
     private void UpdateDeathCounterText()
     {
-        deathCounterText.text = "Deaths: " + numberOfDeaths;
+        deathCounterText.text = numberOfDeaths.ToString();
     }
 }

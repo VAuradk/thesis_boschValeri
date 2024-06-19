@@ -1,14 +1,21 @@
 using UnityEngine;
 
-public class PortalTP : SceneManagement
+public class PortalTP : MonoBehaviour
 {
     [SerializeField] private KeyEntrance key;
     private bool isDone = false;
     [SerializeField] private SpriteRenderer materialChildren;
-
+    private SceneManagement sceneManagement;
+    private TagManagement tagManagement;
     private Transform rotatePortal;
     float fade = 1f;
     [SerializeField] private float rotationSpeed = 50f;
+
+    private void Awake()
+    {
+        sceneManagement = FindObjectOfType<SceneManagement>();
+        tagManagement = FindObjectOfType<TagManagement>();
+    }
 
     private void Start()
     {
@@ -30,11 +37,11 @@ public class PortalTP : SceneManagement
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (tagManager.IsInTagCategory(collision.gameObject.tag, "PlayerMode"))
+        if (tagManagement.IsInTagCategory(collision.gameObject.tag, "PlayerMode"))
         {
             if (key.playerKey == true)
             {
-                NextLevel();
+                sceneManagement.NextScene();
             }
         }
     }
