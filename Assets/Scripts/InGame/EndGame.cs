@@ -7,17 +7,27 @@ public class EndGame : MonoBehaviour
     public TMP_Text finalTimer;
     public TMP_Text finalDeaths;
 
+    private bool theEND = false;
+
     private void Awake()
     {
         gameStatistics = FindObjectOfType<StatisticsManagement>();
     }
 
+    private void Start()
+    {
+        theEND = true;
+    }
+
     private void Update()
     {
-        finalTimer.text = "" + gameStatistics.timerString;
-        finalDeaths.text = "" + gameStatistics.numberOfDeaths;
+        if (theEND == true)
+        {
+            finalTimer.text = "" + gameStatistics.timerString;
+            finalDeaths.text = "" + gameStatistics.numberOfDeaths;
 
-        Time.timeScale = 0f;
+            theEND = false;
+        }
     }
 
 }
