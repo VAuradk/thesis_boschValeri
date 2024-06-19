@@ -54,5 +54,5 @@ Material:
     - _SocketSpeed: 0.5
     - _SocketStrength: 99
     m_Colors:
-    - _Color: {r: 152.30014, g: 140.588, b: 0, a: 0}
+    - _Color: {r: 1024, g: 413.6157, b: 0, a: 0}
   m_BuildTextureStacks: []
