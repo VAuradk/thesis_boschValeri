@@ -6554,30 +6554,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 539624235793976286, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1775858245731487327, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2927809889035251553, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
-      propertyPath: m_StopNaN
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2927809889035251553, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
-      propertyPath: m_Antialiasing
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2927809889035251553, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2927809889035251553, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
-      propertyPath: m_RequiresOpaqueTextureOption
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2952106556334321052, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.13761234
@@ -6617,30 +6593,6 @@ PrefabInstance:
     - target: {fileID: 2952106556334321052, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8516761178030346014, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8516761178030346014, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
-      propertyPath: m_OcclusionCulling
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8516761178030346014, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
-      propertyPath: m_BackGroundColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8516761178030346014, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.5176471
-      objectReference: {fileID: 0}
-    - target: {fileID: 8516761178030346014, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8516761178030346014, guid: d5e0f5ac6f9d0364eaa7933c77990024, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.6627451
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

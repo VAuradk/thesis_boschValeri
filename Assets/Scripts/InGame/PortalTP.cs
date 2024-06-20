@@ -8,6 +8,7 @@ public class PortalTP : MonoBehaviour
     private SceneManagement sceneManagement;
     private TagManagement tagManagement;
     private Transform rotatePortal;
+    private AudioManagement audioManagement;
     float fade = 1f;
     [SerializeField] private float rotationSpeed = 50f;
 
@@ -15,6 +16,7 @@ public class PortalTP : MonoBehaviour
     {
         sceneManagement = FindObjectOfType<SceneManagement>();
         tagManagement = FindObjectOfType<TagManagement>();
+        audioManagement = GameObject.FindGameObjectWithTag("AudioControl").GetComponent<AudioManagement>();
     }
 
     private void Start()
@@ -41,6 +43,7 @@ public class PortalTP : MonoBehaviour
         {
             if (key.playerKey == true)
             {
+                audioManagement.PlaySFX(audioManagement.portalEnter);
                 sceneManagement.NextScene();
             }
         }

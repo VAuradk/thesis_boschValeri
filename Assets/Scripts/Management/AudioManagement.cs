@@ -11,6 +11,7 @@ public class AudioManagement : MonoBehaviour
     public AudioClip playerShot;
     public AudioClip playerKill;
     public AudioClip recolectKey;
+    public AudioClip portalEnter;
 
     private void Start()
     {

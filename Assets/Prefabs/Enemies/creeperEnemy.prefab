@@ -267,6 +267,6 @@ MonoBehaviour:
   isMoving: 0
   knockbackPropagationRadius: 0.3
   squarePrefab: {fileID: 4113773329837969509, guid: 826f1d84b9bd64c5caf12999e2976791, type: 3}
-  numberOfSquares: 30
+  numberOfSquares: 20
   squareLifetime: 4
   squareSpeed: 3
