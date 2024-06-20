@@ -23,6 +23,7 @@ TagManager:
   - playerNormalMode
   - playerGodMode
   - collisionBreakableWall
+  - AudioControl
   layers:
   - Default
   - TransparentFX

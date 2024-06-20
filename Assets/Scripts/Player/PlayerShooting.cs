@@ -7,12 +7,14 @@ public class PlayerShooting : MonoBehaviour
     public Bullet bulletPrefab;
     public Transform bulletSpawnPos;
     private Transform rotatePoint;
+    private AudioManagement audioManagement;
     [SerializeField] private float fireRate = 0.5f;
     private float nextFireTime = 0f;
 
     private void Awake()
     {
         rotatePoint = GetComponent<Transform>();
+        audioManagement = GameObject.FindGameObjectWithTag("AudioControl").GetComponent<AudioManagement>();
     }
 
     private void Start()
@@ -32,6 +34,7 @@ public class PlayerShooting : MonoBehaviour
             Vector2 direction = GetMouseWorldPosition() - (Vector2)bulletSpawnPos.position;
             Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPos.position, Quaternion.identity);
             bullet.Shoot(direction.normalized);
+            audioManagement.PlaySFX(audioManagement.playerShot);
             nextFireTime = Time.time + fireRate;
         }
     }
