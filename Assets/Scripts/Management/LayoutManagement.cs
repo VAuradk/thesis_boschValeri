@@ -9,6 +9,7 @@ public class LayoutManagement : MonoBehaviour
     private bool isGamePaused = false;
     public StatisticsManagement gameStatistics;
     public SceneManagement sceneManagement;
+    public GameObject mainMenu;
 
     private void Awake()
     {
@@ -16,6 +17,10 @@ public class LayoutManagement : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -25,6 +30,16 @@ public class LayoutManagement : MonoBehaviour
         {
             TogglePause();
         }
+    }
+
+    public void MainMenuTrue()
+    {
+        mainMenu.SetActive(true);
+    }
+
+    public void ManiMenuFalse()
+    {
+        mainMenu.SetActive(false);
     }
 
     public void EndScreenTrue()

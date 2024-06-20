@@ -55,8 +55,8 @@ public class SceneManagement : MonoBehaviour
         if (scene.name == "mainMenu")
         {
             statisticsManagement.DisplayFalse();
-
             layoutManagement.EndScreenFalse();
+            layoutManagement.MainMenuTrue();
         }
 
         else if (scene.name == "endScreen")
@@ -68,6 +68,7 @@ public class SceneManagement : MonoBehaviour
         else
         {
             statisticsManagement.DisplayTrue();
+            layoutManagement.ManiMenuFalse();
         }
     }
 
