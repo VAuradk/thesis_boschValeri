@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class UnscaledTime : MonoBehaviour
 {
-    // public Material material;
+    public Material material;
 
-    // private void Update()
-    // {
-    //     material.SetFloat("_UnscaledTime", Time.unscaledTime);
-    // }
+    private void Update()
+    {
+        material.SetFloat("_UnscaledTime", Time.unscaledTime);
+    }
 }

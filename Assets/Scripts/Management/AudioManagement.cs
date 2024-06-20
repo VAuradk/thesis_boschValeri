@@ -9,6 +9,8 @@ public class AudioManagement : MonoBehaviour
 
     public AudioClip backgroundSound;
     public AudioClip playerShot;
+    public AudioClip playerKill;
+    public AudioClip recolectKey;
 
     private void Start()
     {

@@ -9,6 +9,7 @@ public class PlayerManagement : MonoBehaviour
     private Transform tagPlayer;
     private TagManagement tagManager;
     private StatisticsManagement gameStatistics;
+    private AudioManagement audioManagement;
     private SceneManagement sceneManagement;
     private InputAction pauseAction;
     private LayoutManagement layoutManagement;
@@ -23,6 +24,7 @@ public class PlayerManagement : MonoBehaviour
         tagManager = FindObjectOfType<TagManagement>();
         gameStatistics = FindObjectOfType<StatisticsManagement>();
         sceneManagement = FindAnyObjectByType<SceneManagement>();
+        audioManagement = GameObject.FindGameObjectWithTag("AudioControl").GetComponent<AudioManagement>();
         tagPlayer = transform;
         layoutManagement = FindObjectOfType<LayoutManagement>();
         pauseAction = new InputAction(binding: "<Keyboard>/escape");
@@ -72,6 +74,7 @@ public class PlayerManagement : MonoBehaviour
     public void Die()
     {
         gameStatistics.PlayerDied();
+        audioManagement.PlaySFX(audioManagement.playerKill);
         StartCoroutine(Respawn(respawnTime));
         sceneManagement.Restart();
     }
