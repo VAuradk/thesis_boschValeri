@@ -15,17 +15,6 @@ public class SceneManagement : MonoBehaviour
 
     public void NextScene()
     {
-        // int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-
-        // if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-        // {
-        //     SceneManager.LoadSceneAsync(nextSceneIndex);
-        // }
-        // else
-        // {
-        //     LoadSpecificScene("mainMenu");
-        // }
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

@@ -24,6 +24,7 @@ TagManager:
   - playerGodMode
   - collisionBreakableWall
   - AudioControl
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

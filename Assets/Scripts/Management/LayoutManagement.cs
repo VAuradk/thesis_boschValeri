@@ -10,6 +10,7 @@ public class LayoutManagement : MonoBehaviour
     public StatisticsManagement gameStatistics;
     public SceneManagement sceneManagement;
     public GameObject mainMenu;
+    public bool IsGamePaused => isGamePaused;
 
     private void Awake()
     {
@@ -60,6 +61,10 @@ public class LayoutManagement : MonoBehaviour
         if (pauseMenu != null)
         {
             pauseMenu.SetActive(isGamePaused);
+        }
+        else
+        {
+            Debug.LogError("PauseMenu is null. Check if other Scene have gameManager active");
         }
     }
 

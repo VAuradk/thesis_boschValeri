@@ -29,7 +29,7 @@ public class PlayerShooting : MonoBehaviour
 
     public void OnShot(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started && Time.time >= nextFireTime)
+        if (context.phase == InputActionPhase.Started && Time.time >= nextFireTime && !LayoutManagement.instance.IsGamePaused)
         {
             Vector2 direction = GetMouseWorldPosition() - (Vector2)bulletSpawnPos.position;
             Bullet bullet = Instantiate(bulletPrefab, bulletSpawnPos.position, Quaternion.identity);
@@ -51,5 +51,4 @@ public class PlayerShooting : MonoBehaviour
     {
         return mainCam.ScreenToWorldPoint(Input.mousePosition);
     }
-
 }
