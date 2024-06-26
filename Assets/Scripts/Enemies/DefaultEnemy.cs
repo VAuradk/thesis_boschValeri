@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class DefaultEnemy : EnemyManagement
@@ -10,6 +9,7 @@ public class DefaultEnemy : EnemyManagement
         if (isMoving)
         {
             enemyRB.velocity -= enemyRB.velocity.normalized * decelerationRate * Time.fixedDeltaTime;
+
             if (enemyRB.velocity.magnitude < 0.1f)
             {
                 enemyRB.velocity = Vector2.zero;

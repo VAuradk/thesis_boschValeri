@@ -76,10 +76,10 @@ public class EnemyManagement : MonoBehaviour
 
         foreach (var hitCollider in hitColliders)
         {
-
             if (tagManager.IsInTagCategory(hitCollider.gameObject.tag, "Enemies"))
             {
                 EnemyManagement otherEnemy = hitCollider.GetComponent<EnemyManagement>();
+
                 if (otherEnemy != null && otherEnemy != this && otherEnemy.isMoving && !otherEnemy.hasReceivedBulletHit)
                 {
                     otherEnemy.ApplyKnockback();
@@ -89,7 +89,6 @@ public class EnemyManagement : MonoBehaviour
                     otherEnemy.PropagateKnockback();
                 }
             }
-
         }
     }
 
