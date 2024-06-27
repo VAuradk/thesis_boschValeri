@@ -4,9 +4,8 @@ using UnityEngine.Rendering.Universal;
 
 public class InvisibleEnemy : ChaseEnemy
 {
-    [SerializeField] public float invisibilityDuration = 2f;
-    [SerializeField] public float invisibilityInterval = 5f;
-
+    public float invisibilityDuration = 2f;
+    public float invisibilityInterval = 5f;
     private SpriteRenderer spriteRenderer;
     private Material material;
     private float fade = 1f;
@@ -36,11 +35,9 @@ public class InvisibleEnemy : ChaseEnemy
             // Fade out
             light2D.enabled = false;
             yield return StartCoroutine(FadeTo(0f, 1f));
-
             yield return new WaitForSeconds(invisibilityDuration);
 
             // Fade in
-
             yield return StartCoroutine(FadeTo(1f, 1f));
             light2D.enabled = true;
             yield return new WaitForSeconds(invisibilityInterval - invisibilityDuration);
@@ -67,6 +64,7 @@ public class InvisibleEnemy : ChaseEnemy
     public override void OnCollisionEnter2D(Collision2D collision)
     {
         base.OnCollisionEnter2D(collision);
+
         if (tagManager.IsInTagCategory(collision.gameObject.tag, "PlayerMode"))
         {
             ResetVisibilityCoroutine();

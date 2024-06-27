@@ -13,14 +13,12 @@ public class Laser : MonoBehaviour
     [SerializeField] private float noiseScale = 3.14f;
     [SerializeField] private GameObject startVFX;
     [SerializeField] private GameObject endVFX;
+    [SerializeField] private float duration = 1.5f;
     private PlayerManagement playerManagement;
     private Collider2D c;
-
     public LayerMask ingoreThis;
-
     private LineRenderer lineRenderer;
     private float elapsedTime = 0f;
-    [SerializeField] private float duration = 1.5f;
     private Color currentColor;
     private List<ParticleSystem> particleSystems = new List<ParticleSystem>();
 
@@ -32,13 +30,12 @@ public class Laser : MonoBehaviour
         lineRenderer.material.SetFloat("_LaserScale", noiseScale);
 
         ParticleSystem[] particles = transform.GetComponentsInChildren<ParticleSystem>();
+
         foreach (ParticleSystem p in particles)
         {
             particleSystems.Add(p);
-
             var mainModule = p.main;
             mainModule.startColor = new ParticleSystem.MinMaxGradient(color * colorIntensity);
-
             Renderer r = p.GetComponent<Renderer>();
             r.material.SetColor("_EmissionColor", color * (colorIntensity * beamColorEnhance));
         }
@@ -61,7 +58,6 @@ public class Laser : MonoBehaviour
 
             elapsedTime += Time.deltaTime;
             float t = Mathf.Clamp01(elapsedTime / duration);
-
             currentColor = Color.Lerp(color, endColor, t);
             lineRenderer.material.color = currentColor * colorIntensity;
 
@@ -71,6 +67,7 @@ public class Laser : MonoBehaviour
                 mainModule.startColor = new ParticleSystem.MinMaxGradient(currentColor * colorIntensity);
 
                 Renderer r = ps.GetComponent<Renderer>();
+
                 if (r != null && r.material.HasProperty("_EmissionColor"))
                 {
                     r.material.SetColor("_EmissionColor", currentColor * (colorIntensity * beamColorEnhance));
@@ -103,7 +100,6 @@ public class Laser : MonoBehaviour
         }
 
         lineRenderer.SetPosition(1, new Vector2(length, 0));
-
         Vector2 endPosition = startPosition + length * direction;
         startVFX.transform.position = startPosition;
         endVFX.transform.position = endPosition;
