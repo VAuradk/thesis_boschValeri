@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class PortalTP : MonoBehaviour
 {
     [SerializeField] private KeyEntrance key;

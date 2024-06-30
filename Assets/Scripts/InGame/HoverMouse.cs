@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-
 public class HoverMouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public GameObject hover;
@@ -40,6 +39,4 @@ public class HoverMouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         left.transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
         right.transform.Rotate(Vector3.back * rotationSpeed * Time.deltaTime);
     }
-
-
 }

@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class UnscaledTime : MonoBehaviour
 {
     public Material material;

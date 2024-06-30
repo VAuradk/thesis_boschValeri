@@ -1,10 +1,8 @@
 using UnityEngine;
-
 public class AudioManagement : MonoBehaviour
 {
     [SerializeField] AudioSource Music_Source;
     [SerializeField] AudioSource SFX_Source;
-
     public AudioClip backgroundSound;
     public AudioClip playerShot;
     public AudioClip playerKill;

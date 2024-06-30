@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-
 public class TagManagement : MonoBehaviour
 {
     private Dictionary<string, List<string>> tagCategories = new Dictionary<string, List<string>>();

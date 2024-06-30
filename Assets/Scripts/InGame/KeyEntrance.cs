@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class KeyEntrance : MonoBehaviour
 {
     [HideInInspector] public bool playerKey = false;

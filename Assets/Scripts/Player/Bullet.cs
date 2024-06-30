@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
 public class Bullet : MonoBehaviour
 {
     [SerializeField] float speed = 30f;

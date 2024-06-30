@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class SceneManagement : MonoBehaviour
 {
     public GameObject endScreenOnly;
@@ -33,7 +32,6 @@ public class SceneManagement : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Time.timeScale = 1f;
-
         Debug.Log($"SceneManagement: Scene loaded: {scene.name}");
 
         if (scene.buildIndex == 1)

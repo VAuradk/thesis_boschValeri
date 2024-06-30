@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class CreeperEnemy : EnemyManagement
 {
     public GameObject squarePrefab;

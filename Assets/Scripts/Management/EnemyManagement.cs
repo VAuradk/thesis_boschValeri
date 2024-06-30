@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
 public class EnemyManagement : MonoBehaviour
 {
     public float enemySpeed;

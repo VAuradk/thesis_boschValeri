@@ -1,12 +1,10 @@
 using UnityEngine;
 using TMPro;
-
 public class EndGame : MonoBehaviour
 {
     private StatisticsManagement gameStatistics;
     public TMP_Text finalTimer;
     public TMP_Text finalDeaths;
-
     private bool theEND = false;
 
     private void Awake()

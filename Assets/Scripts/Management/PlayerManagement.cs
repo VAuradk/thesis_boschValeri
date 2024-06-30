@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 public class PlayerManagement : MonoBehaviour
 {
     [SerializeField] private float respawnTime;

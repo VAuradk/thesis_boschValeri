@@ -1,10 +1,8 @@
 using System.Collections;
 using UnityEngine;
-
 public class RandomMoveEnemy : EnemyManagement
 {
     [SerializeField] private float changeDirectionInterval = 2f;
-
     private Vector2 moveDirection;
 
     public override void Start()

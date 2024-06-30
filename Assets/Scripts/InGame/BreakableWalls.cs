@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class BreakableWalls : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)

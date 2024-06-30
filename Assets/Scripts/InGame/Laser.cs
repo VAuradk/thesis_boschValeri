@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-
 public class Laser : MonoBehaviour
 {
     [SerializeField] private Socket socket;
@@ -94,9 +93,7 @@ public class Laser : MonoBehaviour
         if (hit)
         {
             length = (hit.point - startPosition).magnitude;
-
             laserEndRotation = Vector2.Angle(direction, hit.normal);
-            // Debug.Log(hit.point);
         }
 
         lineRenderer.SetPosition(1, new Vector2(length, 0));

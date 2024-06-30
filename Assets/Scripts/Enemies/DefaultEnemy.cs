@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class DefaultEnemy : EnemyManagement
 {
     [SerializeField] private float decelerationRate = 0.5f;

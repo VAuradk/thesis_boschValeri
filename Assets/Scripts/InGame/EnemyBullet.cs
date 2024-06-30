@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class EnemyBullet : MonoBehaviour
 {
     [HideInInspector] public TagManagement tagManager;

@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 public class LayoutManagement : MonoBehaviour
 {
     public static LayoutManagement instance;

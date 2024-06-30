@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-
 public class StatisticsManagement : MonoBehaviour
 {
     public TMP_Text timerText;
